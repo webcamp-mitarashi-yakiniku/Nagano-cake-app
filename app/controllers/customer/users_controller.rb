@@ -19,6 +19,10 @@ class Customer::UsersController < ApplicationController
   end
 
   def exit
+    
+  end
+
+  def destroy
     @customer = current_customer
     @customer.update(is_active: false)
     redirect_to users_path
