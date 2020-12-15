@@ -8,4 +8,16 @@ class Customer < ApplicationRecord
   has_many :delivery_addresses, dependent: :destroy
   has_many :cart_products, dependent: :destroy
 
+  validates :family_name, presence: true
+  validates :first_name, presence: true
+  validates :family_name_kana, presence: true
+  validates :first_name_kana, presence: true
+
+  # Emailの正規表現
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX, message: "正しいフォーマットを入力してください。" },
+            uniqueness: { message: "このメールアドレスはすでに登録されています。" }
+  validates :post_code, presence: true
+  validates :address, presence: true
+  validates :phone_number, presence: true
 end
