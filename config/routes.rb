@@ -10,9 +10,12 @@ Rails.application.routes.draw do
     passwords: 'customer/passwords'
   }
 
-  namespace :customer do
-    get 'homes/top'
-    get 'homes/about'
+  namespace :admin do
+  end
+
+  scope module: 'customer' do
+    root 'homes#top'
+    get 'about' => 'homes#about'
   end
 
 
