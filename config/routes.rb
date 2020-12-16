@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   scope module: 'customer' do
     root 'homes#top'
     get 'about' => 'homes#about'
+    resource :users, only: [:show]
   end
-
-
 end
