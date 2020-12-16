@@ -32,5 +32,4 @@ class Customer::UsersController < ApplicationController
     params.require(:customer).permit(:family_name, :first_name, :family_name_kana,
       :first_name_kana,:email, :post_code, :address, :phone_number, :is_active)
   end
-
 end

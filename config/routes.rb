@@ -19,8 +19,5 @@ Rails.application.routes.draw do
     resource :users, only: [:show, :edit, :update, :destroy] do
       get 'exit' => 'users#exit'
     end
-
   end
-
-
 end

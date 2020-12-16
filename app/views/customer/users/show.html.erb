@@ -1,1 +1,68 @@
-<h2>マイページ</h2>
+<div class='container'>
+
+  <div class='row mt-3'>
+    <div class='col-3 offset-1'>
+      <h5 class='text-center'>マイページ</h5>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-1'>
+      <span class='align-middle font-weight-bold'>登録情報</span>
+    </div>
+    <div class='col-3'>
+      <a class='btn btn-primary btn-sm mr-1' href='/users/edit' role='button'>編集する</a>
+      <a class='btn btn-primary btn-sm' href='/users/password/new' role='button'>パスワードを変更する</a>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-8'>
+      <table class='table table-bordered border-primary'>
+        <tr>
+          <td class='table-secondary'>名前</td>
+          <td><%= current_customer.family_name + "　" + current_customer.first_name %></td>
+        </tr>
+        <tr>
+          <td class='table-secondary'> カナ</td>
+          <td><%= current_customer.family_name_kana + "　" + current_customer.first_name_kana %></td>
+        </tr>
+        <tr>
+          <td class='table-secondary'>郵便番号</td>
+          <td><%= current_customer.post_code %></td>
+        </tr>
+        <tr>
+          <td class='table-secondary'>住所</td>
+          <td><%= current_customer.address %></td>
+        </tr>
+        <tr>
+          <td class='table-secondary'>電話番号</td>
+          <td><%= current_customer.phone_number %></td>
+        </tr>
+        <tr>
+          <td class='table-secondary'>メールアドレス</td>
+          <td><%= current_customer.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-1'>
+      <span class='align-middle font-weight-bold'>配送先</span>
+    </div>
+    <div class='col-2'>
+      <a class="btn btn-primary btn-sm" href="/delivery_addresses" role="button">一覧を見る</a>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-1'>
+      <span class='align-middle font-weight-bold'>注文履歴</span>
+    </div>
+    <div class='col-2'>
+      <a class="btn btn-primary btn-sm" href="/orders" role="button">一覧を見る</a>
+    </div>
+  </div>
+
+</div>
