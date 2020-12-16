@@ -1,0 +1,22 @@
+<table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col" class="w-25">郵便番号</th>
+      <th scope="col" class="w-25">住所</th>
+      <th scope="col" class="w-25">宛名</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% delivery_addresses.each do |delivery_address| %>
+      <tr>
+        <td><%= delivery_address.post_code %></td>
+        <td><%= delivery_address.address %></td>
+        <td><%= delivery_address.name %></td>
+        <td><%= link_to "編集", edit_delivery_address_path(delivery_address.id), class: "btn btn-primary" %></td>
+        <td><%= link_to "削除", delivery_address_path(delivery_address.id), method: :delete, class: "btn btn-danger", data: {confirm: "本当に削除しますか？"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

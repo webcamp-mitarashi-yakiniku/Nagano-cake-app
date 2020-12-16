@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     resource :users, only: [:show, :edit, :update, :destroy] do
       get 'exit' => 'users#exit'
     end
+    resources :delivery_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 end
