@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   scope module: 'customer' do
     root 'homes#top'
     get 'about' => 'homes#about'
+    resource :users, only: [:show, :edit, :update, :destroy] do
+      get 'exit' => 'users#exit'
+    end
+    delete 'cart_products/empty' => 'cart_products#empty'
+    resources :cart_products, only: [ :create, :index ,:update, :destroy]
   end
-
-
 end
