@@ -21,27 +21,27 @@
       <table class='table table-bordered border-primary'>
         <tr>
           <td class='table-secondary'>名前</td>
-          <td><%= current_user.family_name + "　" + current_user.first_name %></td>
+          <td><%= current_customer.family_name + "　" + current_customer.first_name %></td>
         </tr>
         <tr>
           <td class='table-secondary'> カナ</td>
-          <td><%= current_user.family_name_kana + "　" + current_user.first_name_kana %></td>
+          <td><%= current_customer.family_name_kana + "　" + current_customer.first_name_kana %></td>
         </tr>
         <tr>
           <td class='table-secondary'>郵便番号</td>
-          <td><%= current_user.post_code %></td>
+          <td><%= current_customer.post_code %></td>
         </tr>
         <tr>
           <td class='table-secondary'>住所</td>
-          <td><%= current_user.address %></td>
+          <td><%= current_customer.address %></td>
         </tr>
         <tr>
           <td class='table-secondary'>電話番号</td>
-          <td><%= current_user.phone_number %></td>
+          <td><%= current_customer.phone_number %></td>
         </tr>
         <tr>
           <td class='table-secondary'>メールアドレス</td>
-          <td><%= current_user.email %></td>
+          <td><%= current_customer.email %></td>
         </tr>
       </table>
     </div>
