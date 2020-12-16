@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <h2 class="mt-5">配送先編集</h2>
+      <!-- 編集エラー時の処理 -->
+      <% if @delivery_address.errors.present? %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @delivery_address.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_with model: @delivery_address, local: true do |f| %>
+        <table class="mt-5">
+          <thead>
+            <tr>
+              <th clsss="w-25"></th>
+              <th class="w-25"></th>
+              <th class="w-50"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><label for="delivery_post_code__input">郵便番号（ハイフンなし）</label></td>
+              <td><%= f.text_field :post_code, autofocus: true, id: "delivery_post_code__input", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><label for="delivery_address__input">住所</label></td>
+              <td colspan="2"><%= f.text_field :address, autofocus: true, id: "delivery_address__input", class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><label for="delivery_name__input">宛名</label></td>
+              <td><%= f.text_field :name, autofocus: true, id: "delivery_name__input", class: "form-control" %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="text-center col-5">
+              <%= f.submit "編集する", class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
