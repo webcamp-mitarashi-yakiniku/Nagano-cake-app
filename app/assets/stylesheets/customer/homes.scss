@@ -28,3 +28,22 @@
   padding: 0;
   color: #ffffff;
 }
+
+.favorite-items {
+	position: relative;
+	overflow: hidden; /* ulでリスト全体を右に50%移動している分幅が広がりスクロールバーが表示されるのを防ぐ */
+}
+
+.favorite-items ul {
+	position: relative;
+	left: 50%; /* ulを右に50%移動 */
+	float: left;
+	margin-left: -5px;/* liのmarginの半分をネガティブマージン（しないと右にずれる） */
+}
+
+.favorite-items ul li {
+	position: relative;
+	left: -50%; /* 左に50%移動 */
+	float: left;
+	margin-left: 10px;
+}
