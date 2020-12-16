@@ -11,7 +11,7 @@
           <li> <%= link_to'マイページ',root_path,class: 'far fa-user-circle nav-link text-light' %></li>
           <li> <%= link_to"商品一覧",root_path,class: "fas fa-birthday-cake nav-link text-light" %></li>
           <li> <%= link_to"カート",root_path,class: "fas fa-cart-plus nav-link text-light" %> </li>
-          <li> <%= link_to"ログアウト",destroy_user_session_path, method: :delete,class: "fas fa-sign-out-alt nav-link text-light"%></li>
+          <li> <%= link_to"ログアウト",destroy_customer_session_path, method: :delete,class: "fas fa-sign-out-alt nav-link text-light"%></li>
           <% else %>
           <li> <%= link_to'About',about_path,class: 'fas fa-atlas nav-link text-light' %></li>
           <li> <%= link_to"商品一覧",root_path,class: "fas fa-birthday-cake nav-link text-light" %></li>
