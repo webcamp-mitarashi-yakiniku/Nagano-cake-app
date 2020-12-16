@@ -16,9 +16,13 @@ Rails.application.routes.draw do
   scope module: 'customer' do
     root 'homes#top'
     get 'about' => 'homes#about'
+
     resource :users, only: [:show, :edit, :update, :destroy] do
       get 'exit' => 'users#exit'
     end
     resources :delivery_addresses, only: [:index, :create, :edit, :update, :destroy]
+
   end
+
+
 end
