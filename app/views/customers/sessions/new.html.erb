@@ -2,33 +2,64 @@
   <div class="row justify-content-center">
     <div class="col-7">
 
-<div class="text-center mt-5">会員の方はこちらからログイン</div>
+      <div class="col-md-6,text-center mt-5">
+        <span class="title">
+          会員の方はこちらからログイン
+        </span>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="text-center mt-5">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :メールアドレス %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      </div>
+      
+      <div class="text-center mt-4">
+        <div class="field">
+          <%= f.label :パスワード %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="text-center mt-4">
+        <div class="remember">
+          <%= link_to '=>パスワードを忘れた方はこちら',new_customer_password_path %>
+        </div>
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="text-center mt-4">
+        <div class="actions">
+          <%= f.submit "ログイン",class: 'btn btn-sm btn-primary' %>
+        </div>
+      </div>
+      <% end %>
+
+      <p>
+        <div class="col-md-6,text-center mt-5">
+          <span class="title">
+            登録がお済みでない方
+          </span>
+        </div>
+      </p>
+
+      <div class="text-center mt-4">
+        <div class="signup-info">
+          <%= link_to 'こちら',new_customer_registration_path %> から新規登録を行ってください。
+        </div>
+      </div>
+
+
     </div>
-  <% end %>
-  <%= link_to '=>パスワードを忘れた方はこちら',new_customer_password_path %>
-
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
   </div>
-<% end %>
+</div>
 
-</div>
-</div>
-</div>
+
+
+<style>
+  .title {
+    background-color: #ff6e6e;
+    color: #ffff;
+  }
+</style>
