@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/' => 'homes#top'
+    resources :orders, only: [:index, :show, :update] do
+      resources :order_products, only: [:update]
+    end
   end
 
   scope module: 'customer' do
