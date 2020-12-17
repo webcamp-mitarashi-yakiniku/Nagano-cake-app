@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :order_products, only: [:update]
     end
     resources :users, only: [:index, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
   end
 
   scope module: 'customer' do
