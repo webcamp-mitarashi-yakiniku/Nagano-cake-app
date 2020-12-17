@@ -9,10 +9,9 @@ class Customer::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @order = Order.new
-    @user = current_customer
-    
+    @customer = current_customer 
     @genres = Genre.all
     # ジャンルの表示
-    
+    @cart_product = CartProduct.new
   end
 end
