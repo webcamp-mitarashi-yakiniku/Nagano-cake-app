@@ -2,5 +2,26 @@
   <div class='row mt-3'>
     <%= render 'customer/homes/genre-search' %>
 
-</div>
+
+    <div class="col-md-3">
+      <!-- 商品画像 -->
+      <%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+    </div>
+    <div class="col-md-6">
+      <!-- 商品名 -->
+      <%= @product.name %><br>
+      <!-- 商品説明 -->
+      <%= @product.introduction %><br>
+      <!-- 価格 -->
+      <%= @product.price.to_s(:delimited) %>円<br>
+      <!-- カートに入れるボタン -->
+      <div class = "pt-5">
+      <%= form_with model: @cart_product, url: cart_products_url, local: true do |f| %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.select :product_quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
+        <%= f.submit "カートに入れる",class: 'btn-product' %>
+      <% end %></div>
+    </div>
+    </div>
+  </div>
 </div>
