@@ -26,7 +26,8 @@ Rails.application.routes.draw do
       get 'exit' => 'users#exit'
     end
     resources :delivery_addresses, only: [:index, :create, :edit, :update, :destroy]
-
+    resources :products, only: [:index, :show]
+    
   end
 
 
