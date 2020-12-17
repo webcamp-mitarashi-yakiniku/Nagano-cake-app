@@ -36,6 +36,6 @@ class Customer::CartProductsController < ApplicationController
   private
   # ストロングパラメータ
   def cart_product_params
-    params.require(:cart_product).permit(:product_id, :customer_id, :product_quantity)
+    params.require(:cart_product).permit(:product_id, :product_quantity)
   end
 end
