@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
+    get '/' => 'homes#top'
+    resources :orders, only: [:index, :show, :update] do
+      resources :order_products, only: [:update]
+    end
+    resources :users, only: [:index, :show, :edit, :update]
   end
 
   scope module: 'customer' do
@@ -21,5 +26,9 @@ Rails.application.routes.draw do
     end
     delete 'cart_products/empty' => 'cart_products#empty'
     resources :cart_products, only: [ :create, :index ,:update, :destroy]
+    resources :orders, only: [ :new, :create]
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/thanks' => 'orders#thanks'
+    resources :delivery_addresses, only: [:index, :create, :edit, :update, :destroy]
   end
 end
