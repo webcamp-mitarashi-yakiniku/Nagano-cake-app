@@ -1,2 +1,19 @@
-<h1>管理者側トップ画面です</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mt-5">
+      <h4><span class="bg-success">管理者画面</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5 mt-5">
+      <h1>本日の注文件数</h1>
+    </div>
+    <div class="col-lg-5 mt-5">
+      <h1><%= link_to "#{@order.count}", root_path %>件</h1>
+    </div>
+  </div>
+</div>
+
+
 
