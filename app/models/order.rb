@@ -27,30 +27,15 @@ class Order < ApplicationRecord
     order_product_amount
   end
 
-  # def display_work_status
-  #   # work_statusに応じて表示を分ける
-  #   case self.order_status
-  #   when 0
-  #     "着手不可"
-  #   when 1
-  #     "製作待ち"
-  #   when 2
-  #     "制作中"
-  #   when 3
-  #     "製作完了"
-  #   else
-  #     "着手不可"
-  #   end
-  # end
-
   def display_order_status
+    # 注文ステータスを表示する関数
     case self.order_status
     when 0
       "入金待ち"
     when 1
       "入金確認"
     when 2
-      "作成中"
+      "制作中"
     when 3
       "発送準備中"
     else
