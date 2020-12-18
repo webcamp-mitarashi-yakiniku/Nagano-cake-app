@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'search' => 'search#locate'
+
   devise_for :admins, path: 'admin',controllers: {
     sessions: 'admin/sessions'
   }
