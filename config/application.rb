@@ -18,5 +18,16 @@ module NaganoCake
 
     # タイムゾーンを日本時間に設定
     config.time_zone = 'Asia/Tokyo'
+
+    # ジェネレータコマンド時に./specディレクトリ以下にテストファイルを作成する
+    config.generators do |g|
+      g.test_framework :rspec,
+      # fixtures: false,
+      view_specs: false,
+      helper_specs: false,
+      routing_specs: false
+      # generateコマンドでデフォルトで作成されるfactory_botファイルの場所を変える
+      g.factory_bot dir: 'spec/factories'
+    end
   end
 end
