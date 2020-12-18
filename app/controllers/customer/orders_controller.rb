@@ -1,4 +1,8 @@
 class Customer::OrdersController < ApplicationController
+
+  def index
+    @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc)
+  end
   def new
     @delivery_addresses = DeliveryAddress.where(customer_id: current_customer.id)
     @new_delivery_addresses = DeliveryAddress.new
