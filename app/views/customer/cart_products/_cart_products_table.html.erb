@@ -1,0 +1,59 @@
+<%# 商品一覧テーブル %>
+<div class='row mt-3'>
+  <div class='col'>
+    <table class='table table-bordered border-primary'>
+      <thead>
+        <tr>
+          <th class='table-secondary'>商品名</th>
+          <th class='table-secondary'>単価(税込)</th>
+          <th class='table-secondary'>数量</th>
+          <th class='table-secondary'>小計</th>
+          <th class='table-secondary'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% cart_products.each do |cart_product| %>
+          <tr>
+            <td>
+              <% product = Product.find(cart_product.product_id) %>
+              <%= attachment_image_tag product, :image, size:'40x40', fallback: "sample.png" %>
+              <%= product.name %>
+            </td>
+            <td><%= get_price_including_tax(cart_product).to_s(:delimited) %></td>
+            <td>
+              <%= form_with model: cart_product, url: cart_product_url(cart_product), remote: true do |f| %>
+                <div class="row">
+                  <div class="col-3">
+                    <%= f.text_field :product_quantity, id: "product_quantity__input", class: "form-control" %>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm">変更</button>
+                </div>
+              <% end %>
+            </td>
+            <td><%= get_subtotal(cart_product).to_s(:delimited) %></td>
+            <td>
+              <%= link_to cart_product_path(cart_product), method: :delete, remote: true, data: {"turbolinks" => false} do %>
+                <button type="button" class="btn btn-danger">削除する</button>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%# "買い物を続ける"ボタン & 合計金額 %>
+<div class='row mt-3'>
+  <div class='col'>
+    <a class="btn btn-primary btn-sm" href="/" role="button">買い物を続ける</a>
+  </div>
+  <div class='col'>
+    <table class='table table-bordered border-primary'>
+      <tr>
+        <th class='table-secondary'>合計金額</th>
+        <td><%= get_total(cart_products).to_s(:delimited) %></td>
+      </tr>
+    </table>
+  </div>
+</div>

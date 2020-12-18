@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      <h2 class="mt-5">会員一覧</h2>
+      <div class="mt-5">
+        <table class="table mt-5">
+          <thead>
+            <tr>
+              <th scope="col">会員ID</th>
+              <th scope="col">氏名</th>
+              <th scope="col">メールアドレス</th>
+              <th scope="col">ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @customers.each do |customer| %>
+              <tr>
+                <td><%= customer.id %></td>
+                <td><%= link_to "#{customer.family_name + customer.first_name}", admin_user_path(customer.id) %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.is_active ? "有効" : "無効" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @customers %>
+      </div>
+    </div>
+  </div>
+</div>

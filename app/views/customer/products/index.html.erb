@@ -1,0 +1,29 @@
+<div class='container'>
+  <div class='row mt-3'>
+    <%= render 'customer/homes/genre-search' %>
+
+
+<div class="col-md-10">
+    <h3 class="product-index">商品一覧（全<%= @products.count %>件）</h3>
+    <div id="product">
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <table>
+          <tr>
+            <td>
+              <%= link_to product_path(product) do %>
+                <%= attachment_image_tag product, :image, format: 'jpeg', fallback: "sample_no_image.jpg", size: "200x100" %>
+              <% end %><br>
+              <%= product.name %><br>
+              <%= product.price.to_s(:delimited) %>円
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+    </div>
+  </div> 
+    <!-- １ページに８件表示する -->
+    <%= paginate @products %>
+</div>
+</div>
