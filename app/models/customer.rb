@@ -24,4 +24,8 @@ class Customer < ApplicationRecord
   def full_name
     self.family_name + self.first_name
   end
+
+  def Customer.search(search)
+     Customer.where(["family_name LIKE? OR first_name LIKE?", "%#{search}%", "%#{search}%"])
+  end
 end

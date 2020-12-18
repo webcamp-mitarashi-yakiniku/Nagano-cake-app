@@ -16,4 +16,8 @@ class Product < ApplicationRecord
   # true/false のみ許容
   validates :on_sale_status, inclusion: {in: [true, false]}
 
+  def Product.search(search)
+    Product.where(['name LIKE?', "%#{search}%"])
+  end
+
 end
