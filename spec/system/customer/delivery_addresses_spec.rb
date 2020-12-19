@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "Customer::DeliveryAddresses", type: :feature do
+RSpec.describe "Customer::DeliveryAddresses", type: :system do
   # ユーザーは新しい配送先を作成する
-  scenario "customer creates a new delivery address" do
+  it "creates a new delivery address as a customer" do
     customer = FactoryBot.create(:customer)
     delivery_address = FactoryBot.build(:delivery_address, customer: customer)
 
