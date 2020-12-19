@@ -28,9 +28,9 @@ class Customer::DeliveryAddressesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
-    delivery_address = current_customer.delivery_addresses.find(params[:id])
+    delivery_address = DeliveryAddress.find(params[:id])
     delivery_address.destroy
     @delivery_addresses = current_customer.delivery_addresses
     respond_to do |format|

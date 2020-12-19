@@ -60,7 +60,8 @@
             <tr>
               <td><label for="password_confirmation__input">パスワード（確認用）</label></td>
               <td></td>
-              <td colspan="3"><%= f.password_field :password_confirmation, autofocus: true, id: "password__input", class: "form-control" %></td>
+              <!-- idを変更 -->
+              <td colspan="3"><%= f.password_field :password_confirmation, autofocus: true, id: "confirm_password__input", class: "form-control" %></td>
             </tr>
           </tbody>
         </table>
