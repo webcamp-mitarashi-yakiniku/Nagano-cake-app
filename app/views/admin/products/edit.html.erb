@@ -17,11 +17,11 @@
     </div>
   </div>
   <div class="container">
-    <%= form_with model: @product, url: admin_product_path , local:true do |f| %>
+    <%= form_with model: @product, url: admin_product_path, local: true do |f| %>
       <div class="row">
         <div class="col-5">
-            <%= attachment_image_tag @product, :image, size: "300x200", fallback: "sample_cake2.jpg" %>
-            <%= f.attachment_field :image, placeholder: "商品画像" %>
+            <%= attachment_image_tag @product, :image, size: "300x200", fallback: "sample_cake2.jpg", id: "image" %>
+            <%= f.attachment_field :image, placeholder: "商品画像", id: 'product-image' %>
         </div>
         <div class="col-5">
           <table class="table table-borderless">
