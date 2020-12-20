@@ -1,17 +1,16 @@
 <%# 商品一覧テーブル %>
 <div class='row mt-3'>
   <div class='col'>
-    <table class='table table-bordered border-primary'>
+    <table class='table'>
       <thead>
-        <tr>
-          <th class='table-secondary'>商品名</th>
-          <th class='table-secondary'>単価(税込)</th>
-          <th class='table-secondary'>数量</th>
-          <th class='table-secondary'>小計</th>
-          <th class='table-secondary'></th>
+        <tr class="c-cart-product-index-text">
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>個数</th>
+          <th>小計</th>
+          <th></th>
         </tr>
-      </thead>
-      <tbody>
+      <tbody class="c-cart-product-index-tbody">
         <% cart_products.each do |cart_product| %>
           <tr>
             <td>
@@ -38,6 +37,7 @@
             </td>
           </tr>
         <% end %>
+      </thead>
       </tbody>
     </table>
   </div>
@@ -51,8 +51,8 @@
   <div class='col'>
     <table class='table table-bordered border-primary'>
       <tr>
-        <th class='table-secondary'>合計金額</th>
-        <td><%= get_total(cart_products).to_s(:delimited) %></td>
+        <th class='c-cart-product-index-text'>合計金額</th>
+        <td class="c-cart-product-index-tbody"><%= get_total(cart_products).to_s(:delimited) %></td>
       </tr>
     </table>
   </div>

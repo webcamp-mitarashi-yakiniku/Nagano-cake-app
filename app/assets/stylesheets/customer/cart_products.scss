@@ -1,7 +1,7 @@
 // Place all the styles related to the customer::cart_products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.c-cart-products-index-button{
+.c-cart-products-index-button {
   display: inline-block;
   border-radius: 5%;
   /* 角丸       */
@@ -23,7 +23,8 @@
   /* なめらか変化 */
 
 }
-.c-cart-products-index-delete-button{
+
+.c-cart-products-index-delete-button {
   display: inline-block;
   border-radius: 5%;
   /* 角丸       */
@@ -35,7 +36,7 @@
   /* カーソル   */
   padding: 9px 9px;
   /* 余白       */
-  background:#C0C0C0;
+  background: #C0C0C0;
   /* 背景色     */
   color: #000000;
   /* 文字色     */
@@ -44,4 +45,13 @@
   transition: .3s;
   /* なめらか変化 */
 
+}
+
+
+.c-cart-product-index-text {
+  background:#000000;
+  color: #C8A06B;
+}
+.c-cart-product-index-tbody{
+  background-color:#EDE1D1;
 }
