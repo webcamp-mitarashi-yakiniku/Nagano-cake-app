@@ -11,14 +11,20 @@
         <div class="text-center mt-5">
           <div class="field">
             <%= f.label :メールアドレス %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'session_email' %>
+
           </div>
         </div>
 
         <div class="text-center mt-4">
           <div class="field">
-            <%= f.label :パスワード %>
+
             <%= f.password_field :password, autocomplete: "current-password" %>
+
+            <%= f.password_field :password, autocomplete: "current-password", id: 'session_password' %>
+
           </div>
         </div>
 

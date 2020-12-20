@@ -16,7 +16,7 @@ module Customer::CartProductsHelper
 
   # カート内商品の税込み価格を取得
   def get_price_including_tax(cart_product)
-    tmp = Product.find(cart_product.product_id).price * 1.1
+    tmp = BigDecimal((Product.find(cart_product.product_id).price).to_s) * BigDecimal("1.1")
     tmp = BigDecimal((tmp).to_s).ceil # 小数点切り上げ
   end
 
