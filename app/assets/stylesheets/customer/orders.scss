@@ -41,3 +41,40 @@
   border-top: solid 5px #000000;
   border-bottom: solid 5px #000000;
 }
+
+// 注文一覧画面
+.c-order-container {
+  padding: 32px 0;
+}
+
+.c-order-title {
+  font-size: 24px;
+  font-weight: 16px;
+}
+
+.c-order-table {
+  margin-top: 8px;
+}
+
+.c-order-index-text {
+  background:#000000;
+  color: #C8A06B;
+}
+.c-order-index-tbody{
+  background-color:#EDE1D1;
+}
+
+.c-order-index-button {
+  display: inline-block;
+  border-radius: 5%;
+  font-size: 12pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 9px 33px;
+  background: #000000;
+  color: #C8A06B;
+  line-height: 1em;
+  transition: .3s;
+}
+
+// 注文詳細画面
