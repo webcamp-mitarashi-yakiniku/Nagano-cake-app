@@ -3,11 +3,8 @@
   <div class='row mt-3'>
     <h4 class='text-center'>マイページ</h4>
   </div>
-
-
       <table width="100%" class='c-user-table'>
         <tbody>
-
           <tr>
             <th height="50px" width="40%" colspan="1" scope="row" class='c-user-th'>名前</th>
             <td class="c-user-td"><%= current_customer.family_name + "　" + current_customer.first_name %></td>
@@ -39,7 +36,7 @@
   <div class='c-user-select'>
     <table>
       <tr>
-        <th>登録情報</th>
+        <th class='c-user-select'>登録情報</th>
       </tr>
       <tr>
         <td><a class='c-user-button' href='/users/edit' role='button'>編集する</a></td>
@@ -50,7 +47,7 @@
     </table>
     <table>
       <tr>
-        <th>配送先</th>
+        <th class='c-user-select'>配送先</th>
       </tr>
       <tr>
         <td><a class="c-user-button" href="/delivery_addresses" role="button" , id="delivery_addresses_index">一覧を見る</a>
@@ -59,7 +56,7 @@
     </table>
     <table>
       <tr>
-        <th>注文履歴</th>
+        <th class='c-user-select'>注文履歴</th>
       </tr>
       <tr>
         <td><a class="c-user-button" href="/orders" role="button">一覧を見る</a></td>
