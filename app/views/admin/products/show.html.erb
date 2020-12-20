@@ -1,0 +1,50 @@
+<div class="container">
+  <h4 class="mt-5">商品画像</h4>
+  <div class="row">
+    <div class="col-6">
+       <%= attachment_image_tag @product, :image, size: "400x300", fallback: "sample_cake2.jpg" %>
+    </div>
+    <div class="col-6">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>商品名</td>
+              <td><%= @product.name %></td>
+            </tr>
+            <tr>
+              <td>商品説明</td>
+              <td><%= @product.introduction %></td>
+            </tr>
+            <tr>
+              <td>ジャンル</td>
+              <td><%= @product.genre.name %></td>
+            </tr>
+            <tr>
+              <td>税込価格(税抜価格)</td>
+              <td><%= tax(@product.price) %>(<%= converting_to_jpy(@product.price) %>)円</td>
+            </tr>
+            <tr>
+              <td>販売ステータス</td>
+              <td>
+                <% if @product.on_sale_status == TRUE %>
+                  <%= "販売中" %>
+                <% else %>
+                  <%= "売切れ" %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= link_to "編集する", edit_admin_product_path(@product), class: 'btn btn-lg btn-primary' %></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

@@ -44,6 +44,7 @@ class Customer::OrdersController < ApplicationController
       new_delivery_address.name = params[:order][:new_name]
       new_delivery_address.post_code = params[:order][:new_post_code]
       new_delivery_address.address = params[:order][:new_address]
+      new_delivery_address.save
       @order.name = new_delivery_address.name
       @order.post_code = new_delivery_address.post_code
       @order.address = new_delivery_address.address
@@ -52,8 +53,14 @@ class Customer::OrdersController < ApplicationController
   end
 
   def thanks
+    # 注文を確定
     order = Order.create(order_params)
     order.save
+
+    # カートの中身をすべて削除
+    current_customer.cart_products.each do |cart_product|
+      cart_product.delete
+    end
   end
 
   private

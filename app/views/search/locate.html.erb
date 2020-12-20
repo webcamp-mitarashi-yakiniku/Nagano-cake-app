@@ -1,0 +1,82 @@
+<% if @select_num == "1"%>
+  <h2 class="ml-5 mt-5">商品検索結果</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-right">
+        <%= link_to new_admin_product_path do %>
+          <button type="button" class="btn btn-lg btn-secondary rounded-circle p-0" style="width:3rem;height:3rem;">＋</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+              <th>ジャンル</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @products.each do |product| %>
+              <tr>
+                <td><%= product.id %></td>
+                <td><%= link_to product.name, admin_product_path(product)  %></td>
+                <td><%= converting_to_jpy(product.price)%></td>
+                <td><%= product.genre.name%></td>
+                <td>
+                  <% if product.on_sale_status == TRUE %>
+                    <%= "販売中" %>
+                  <% else %>
+                    <%= "販売停止中" %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <% if @products.count == 0 %>
+          <h1>該当する検索結果がありません</h1>
+        <% end %>
+      </div>
+      <%= paginate @products %>
+    </div>
+  </div>
+<% else @select_num == "2" %>
+<h2 class="mt-5 ml-5">会員検索結果</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">会員ID</th>
+              <th scope="col">氏名</th>
+              <th scope="col">メールアドレス</th>
+              <th scope="col">ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @customers.each do |customer| %>
+              <tr>
+                <td><%= customer.id %></td>
+                <td><%= link_to "#{customer.family_name + customer.first_name}", admin_user_path(customer.id) %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.is_active ? "有効" : "無効" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @customers %>
+        <% if @customers.count == 0 %>
+          <h1>該当する検索結果がありません</h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
