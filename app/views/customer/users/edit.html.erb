@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-8">
+    <div class="col-6 offset-4">
       <h2 class="mt-5">登録情報編集</h2>
       <!-- TODO: 編集エラー時の処理 -->
       <% if @customer.errors.present? %>
@@ -14,57 +14,38 @@
       <% end %>
       <%= form_with model: @customer, url: users_path, local: true do |f| %>
         <table class="mt-5">
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>名前</td>
-              <td><label for="family_name__input">（姓）</label></td>
-              <td><%= f.text_field :family_name, autofocus: true, id: "family_name__input", class: "form-control" %></td>
-              <td><label for="first_name__input">（名）</label></td>
-              <td><%= f.text_field :first_name, autofocus: true, id: "first_name__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td>フリガナ</td>
-              <td><label for="family_name_kana__input">（セイ）</label></td>
-              <td><%= f.text_field :family_name_kana, autofocus: true, id: "family_name_kana__input", class: "form-control" %></td>
-              <td><label for="first_name_kana__input">（メイ）</label></td>
-              <td><%= f.text_field :first_name_kana, autofocus: true, id: "first_name_kana__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><label for="mail_address__input">メールアドレス</label></td>
-              <td></td>
-              <td><%= f.email_field :email, autofocus: true, id: "mail_address__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><label for="post_code__input">郵便番号（ハイフンなし）</label></td>
-              <td></td>
-              <td><%= f.text_field :post_code, autofocus: true, id: "post_code__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><label for="address__input">住所</label></td>
-              <td></td>
-              <td colspan="3"><%= f.text_field :address, autofocus: true, id: "address__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <td><label for="phone_number__input">電話番号（ハイフンなし）</label></td>
-              <td></td>
-              <td colspan="3"><%= f.text_field :phone_number, autofocus: true, id: "phone_number__input", class: "form-control" %></td>
-            </tr>
-          </tbody>
+          <tr>
+            <th class="c-user-th">名前（姓）（名）</th>
+            <td class="c-user-td"><%= f.text_field :family_name, autofocus: true, id: "family_name__input", class: "form-control" %></td>
+            <td class="c-user-td"><%= f.text_field :first_name, autofocus: true, id: "first_name__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-user-th">フリガナ（セイ）（メイ）</th>
+            <td class="c-user-td"><%= f.text_field :family_name_kana, autofocus: true, id: "family_name_kana__input", class: "form-control" %></td>
+            <td class="c-user-td"><%= f.text_field :first_name_kana, autofocus: true, id: "first_name_kana__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-user-th"><label for="mail_address__input">メールアドレス</label></th>
+            <td class="c-user-td" colspan="2"><%= f.email_field :email, autofocus: true, id: "mail_address__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-user-th"><label for="post_code__input">郵便番号（ハイフンなし）</label></th>
+            <td class="c-user-td" colspan="2"><%= f.text_field :post_code, autofocus: true, id: "post_code__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-user-th"><label for="address__input">住所</label></th>
+            <td class="c-user-td" colspan="2"><%= f.text_field :address, autofocus: true, id: "address__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-user-th"><label for="phone_number__input">電話番号（ハイフンなし）</label></th>
+            <td class="c-user-td" colspan="2"><%= f.text_field :phone_number, autofocus: true, id: "phone_number__input", class: "form-control" %></td>
+          </tr>
         </table>
         <div class="container mt-5">
-          <div class="row justify-content-center">
-            <div class="col-5">
-              <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
-              <%= link_to '退会する', exit_users_path, class: "btn btn-danger" %>
+          <div class="row">
+            <div class="col offset-3">
+                <%= f.submit "編集内容を保存する", class: "c-user-button mr-3" %>
+                <%= link_to '退会する', exit_users_path, class: "c-user-button-danger" %>
             </div>
           </div>
         </div>

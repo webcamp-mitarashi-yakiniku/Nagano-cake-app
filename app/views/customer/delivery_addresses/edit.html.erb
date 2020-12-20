@@ -22,15 +22,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><label for="delivery_post_code__input">郵便番号（ハイフンなし）</label></td>
+            <tr class="c-delivery-address-list-text">
+              <td class="c-delivery-address-list-text"><label for="delivery_post_code__input">郵便番号（ハイフンなし）</label></td>
               <td><%= f.text_field :post_code, autofocus: true, id: "delivery_post_code__input", class: "form-control" %></td>
             </tr>
-            <tr>
+            <tr class="c-delivery-address-list-text">
               <td><label for="delivery_address__input">住所</label></td>
               <td colspan="2"><%= f.text_field :address, autofocus: true, id: "delivery_address__input", class: "form-control" %></td>
             </tr>
-            <tr>
+            <tr class="c-delivery-address-list-text">
               <td><label for="delivery_name__input">宛名</label></td>
               <td><%= f.text_field :name, autofocus: true, id: "delivery_name__input", class: "form-control" %></td>
             </tr>
@@ -39,7 +39,7 @@
         <div class="container mt-5">
           <div class="row justify-content-center">
             <div class="text-center col-5">
-              <%= f.submit "編集する", class: "btn btn-success" %>
+              <%= f.submit "編集する", class: "c-delivery-address-button" %>
             </div>
           </div>
         </div>
