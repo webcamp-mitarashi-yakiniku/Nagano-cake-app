@@ -1,29 +1,46 @@
-<div class='container'>
+<div class='container-fluid'>
+  <!-- タイトル -->
   <div class='row mt-3'>
-    <%= render 'customer/homes/genre-search' %>
-
-
-<div class="col-md-10">
-    <h3 class="product-index">商品一覧（全<%= @products.count %>件）</h3>
-    <div id="product">
-    <% @products.each do |product| %>
-      <div class="col-md-3">
-        <table>
-          <tr>
-            <td>
-              <%= link_to product_path(product) do %>
-                <%= attachment_image_tag product, :image, format: 'jpeg', fallback: "sample_no_image.jpg", size: "200x100" %>
-              <% end %><br>
-              <%= product.name %><br>
-              <%= product.price.to_s(:delimited) %>円
-            </td>
-          </tr>
-        </table>
-      </div>
-    <% end %>
+    <div class="col">
+      <h2 class="c-products-title">商品一覧（全<%= @products.count %>件）</h2>
+      <p class="c-products-title c-products-title-sub">Products</p>
     </div>
+  </div>
+  <!-- ジャンル検索機能 & 商品一覧テーブル -->
+  <div class='row mt-3'>
+    <div class="col-md-2">
+      <%= render 'customer/homes/genre-search' %>
+    </div>
+    <div class="col-md-10">
+      <div id="product">
+        <div class="row">
+          <% @products.each do |product| %>
+            <div class="col-md-3 mb-3">
+              <%= link_to product_path(product) do %>
+                <%= attachment_image_tag product, :image, format: 'jpeg', fallback: "sample_no_image.jpg", size: "240x240" %>
+              <% end %><br>
+              <div class=".c-products-text">
+                <%= product.name %><br>
+                <%= product.price.to_s(:delimited) %>円
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ページネーション機能 -->
+  <div class='row mt-3'>
+    <div class="col">
+      <div class="d-flex align-items-center justify-content-center">
+        <%= paginate @products %>
+      </div>
+    </div>
+<<<<<<< HEAD
   </div> 
   <!-- １ページに８件表示する -->
   <%= paginate @products %>
-</div>
+=======
+  </div>
+>>>>>>> 40470dd0349fad2069227988b57731e4ac742ee2
 </div>
