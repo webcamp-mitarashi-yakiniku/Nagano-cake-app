@@ -23,6 +23,40 @@
   /* なめらか変化 */
 }
 
+.c-user-button-danger {
+  display: inline-block;
+  border-radius: 5%;
+  /* 角丸       */
+  font-size: 12pt;
+  /* 文字サイズ */
+  text-align: center;
+  /* 文字位置   */
+  cursor: pointer;
+  /* カーソル   */
+  padding: 11px 33px;
+  /* 余白       */
+  background: #696969;
+  /* 背景色     */
+  color: #C8A06B;
+  /* 文字色     */
+  line-height: 1em;
+  /* 1行の高さ  */
+  transition: .3s;
+  /* なめらか変化 */
+}
+
+.c-user-button:link,
+.c-user-button:visited,
+.c-user-button:hover,
+.c-user-button:active,
+.c-user-button-danger:link,
+.c-user-button-danger:visited,
+.c-user-button-danger:hover,
+.c-user-button-danger:active {
+  color: #C8A06B;
+  text-decoration: none;
+}
+
 .c-user-th {
   background: #EDE1D1;
   font-size: 16px;
@@ -53,4 +87,3 @@
   font-weight: normal;
 
 }
-
