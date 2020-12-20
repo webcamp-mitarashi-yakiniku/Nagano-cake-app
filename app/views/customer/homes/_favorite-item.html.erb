@@ -1,37 +1,27 @@
 <div class="favorite">
-  <div class="favorite-title">おすすめ商品</div>
-  <div class="favorite-items">
-
-    <ul style="list-style: none;">
-      <li>
-        <div class="card">
-          <%= image_tag 'sample_cake.png', :size =>'150x150' %>
-          <p class="card-text">フルーツケーキ</br>¥1500</p>
+  <div class="favorite-title">
+    <span class="favorite-title-inner">おすすめ商品</span>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-md-3">
+          <div class="favorite-item">
+            <%= link_to product_path(product) do %>
+              <%= attachment_image_tag product, :image, format: 'jpeg', class: "img-fluid" %>
+            <% end %>
+            <div class="favorite-item-name">
+              <span class="favorite-item-name-text"><%= product.name %></span>
+            </div>
+            <div class="favorite-item-price">
+              <span class="favorite-item-price-text"><%= product.price.to_s(:delimited) %>円</span>
+            </div>
+          </div>
         </div>
-      </li>
-
-      <li>
-        <div class="card">
-          <%= image_tag 'sample_madrenu.png', :size =>'150x150' %>
-          <p class="card-text">マドレーヌ</br>¥1500</p>
-        </div>
-      </li>
-
-
-      <li>
-        <div class="card">
-          <%= image_tag 'sample_rollcake.png', :size =>'150x150' %>
-          <p class="card-text">ロールケーキ</br>¥1500</p>
-        </div>
-      </li>
-
-      <li>
-        <div class="card">
-          <%= image_tag 'sample_monbran.png', :size =>'150x150' %>
-          <p class="card-text">モンブラン</br>¥1500</p>
-        </div>
-      </li>
-    </ul>
-
+      <% end %>
+    </div>
+  </div>
+  <div class="favorite-continue-btn-wrapper">
+    <%= link_to "続きをみる", products_path, class: "favorite-continue-btn" %>
   </div>
 </div>

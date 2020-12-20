@@ -1,12 +1,15 @@
 // Place all the styles related to the customer::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// トップページ
 .main-visual {
   background-image: image-url("sample_top.jpg");
   background-size: cover;
-  height: 300px;
+  height: 400px;
   background-position: center;
 }
+
 .main-visual:before {
   content: "";
   position: absolute;
@@ -14,12 +17,14 @@
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4); /*半透明のフィルターをかける*/
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.7); /*半透明のフィルターをかける*/
 }
+
 .main-visual-content {
   text-align:center;
   position: absolute;
-  top: 50%;
+  top: 200px;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
@@ -29,21 +34,89 @@
   color: #ffffff;
 }
 
-.favorite-items {
-	position: relative;
-	overflow: hidden; /* ulでリスト全体を右に50%移動している分幅が広がりスクロールバーが表示されるのを防ぐ */
+.main-visual-content h1 {
+  font-family: "Libre Baskerville";
+  font-size: 40px;
 }
 
-.favorite-items ul {
-	position: relative;
-	left: 50%; /* ulを右に50%移動 */
-	float: left;
-	margin-left: -5px;/* liのmarginの半分をネガティブマージン（しないと右にずれる） */
+.favorite-title {
+  padding: 30px 10px;
+  font-size: 24px;
+  text-align: center;
 }
 
-.favorite-items ul li {
-	position: relative;
-	left: -50%; /* 左に50%移動 */
-	float: left;
-	margin-left: 10px;
+.favorite-title-inner {
+  position: relative;
+  display: inline-block;
+  transform: translateY(-20%);
+}
+
+.favorite-title-inner::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 80px;
+  height: 1px;
+  background-color: #c8a06b;
+  transform: translateX(-50%);
+}
+
+.favorite-item {
+  margin-bottom: 16px;
+}
+
+.favorite-item-name {
+  padding: 4px;
+}
+
+.favorite-item-price-text {
+  color: #c8a06b;
+}
+
+.favorite-item-price {
+  padding: 4px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.favorite-continue-btn-wrapper {
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.favorite-continue-btn {
+  border: solid 2px #c8a06b;
+  color: #c8a06b;
+  display: inline-block;
+  padding: 8px 12px;
+  width: 200px;
+  text-align: center;
+}
+
+.favorite-continue-btn:hover {
+  color: #fff;
+  background-color: #c8a06b;
+}
+
+// Aboutページ
+.about-page-container {
+  padding: 40px 0;
+}
+
+.about-title {
+  text-align: center;
+}
+
+.about-title-text {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.about-explanation {
+  font-size: 16px;
+  margin-top: 16px;
+  text-align: center;
 }
