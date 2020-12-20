@@ -1,3 +1,54 @@
 // Place all the styles related to the customer::users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.c-user-button {
+  display: inline-block;
+  border-radius: 5%;
+  /* 角丸       */
+  font-size: 12pt;
+  /* 文字サイズ */
+  text-align: center;
+  /* 文字位置   */
+  cursor: pointer;
+  /* カーソル   */
+  padding: 9px 33px;
+  /* 余白       */
+  background: #000000;
+  /* 背景色     */
+  color: #C8A06B;
+  /* 文字色     */
+  line-height: 1em;
+  /* 1行の高さ  */
+  transition: .3s;
+  /* なめらか変化 */
+}
+
+.c-user-th {
+  background: #EDE1D1;
+  font-size: 16px;
+  font-weight: normal;
+  border: 1px #ccc solid;
+  padding-left: 10px;
+}
+
+.c-user-td {
+  border: 1px #ccc solid;
+  padding-left: 10px;
+
+}
+
+.table-secondary {
+  background: #EDE1D1;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.c-user-table {
+  border: 1px #ccc solid;
+
+}
+
+.c-user-select {
+  padding-top: 40px;
+}
+

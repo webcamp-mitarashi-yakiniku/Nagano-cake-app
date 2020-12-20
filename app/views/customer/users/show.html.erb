@@ -1,68 +1,69 @@
 <div class='container'>
 
   <div class='row mt-3'>
-    <div class='col-3 offset-1'>
-      <h5 class='text-center'>マイページ</h5>
-    </div>
+    <h4 class='text-center'>マイページ</h4>
   </div>
 
-  <div class='row mt-3'>
-    <div class='col-1'>
-      <span class='align-middle font-weight-bold'>登録情報</span>
-    </div>
-    <div class='col-3'>
-      <a class='btn btn-primary btn-sm mr-1' href='/users/edit' role='button'>編集する</a>
-      <a class='btn btn-primary btn-sm' href='/users/password/new' role='button'>パスワードを変更する</a>
-    </div>
-  </div>
 
-  <div class='row mt-3'>
-    <div class='col-8'>
-      <table class='table table-bordered border-primary'>
-        <tr>
-          <td class='table-secondary'>名前</td>
-          <td><%= current_customer.family_name + "　" + current_customer.first_name %></td>
-        </tr>
-        <tr>
-          <td class='table-secondary'> カナ</td>
-          <td><%= current_customer.family_name_kana + "　" + current_customer.first_name_kana %></td>
-        </tr>
-        <tr>
-          <td class='table-secondary'>郵便番号</td>
-          <td><%= current_customer.post_code %></td>
-        </tr>
-        <tr>
-          <td class='table-secondary'>住所</td>
-          <td><%= current_customer.address %></td>
-        </tr>
-        <tr>
-          <td class='table-secondary'>電話番号</td>
-          <td><%= current_customer.phone_number %></td>
-        </tr>
-        <tr>
-          <td class='table-secondary'>メールアドレス</td>
-          <td><%= current_customer.email %></td>
-        </tr>
+      <table width="100%" class='c-user-table'>
+        <tbody>
+
+          <tr>
+            <th height="50px" width="40%" colspan="1" scope="row" class='c-user-th'>名前</th>
+            <td class="c-user-td"><%= current_customer.family_name + "　" + current_customer.first_name %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'> カナ</th>
+            <td class="c-user-td"><%= current_customer.family_name_kana + "　" + current_customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>郵便番号</th>
+            <td class="c-user-td"><%= current_customer.post_code %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>住所</th>
+            <td class="c-user-td"><%= current_customer.address %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>電話番号</th>
+            <td class="c-user-td"><%= current_customer.phone_number %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>メールアドレス</th>
+            <td class="c-user-td"><%= current_customer.email %></td>
+          </tr>
+        </tbody>
       </table>
-    </div>
-  </div>
 
-  <div class='row'>
-    <div class='col-1'>
-      <span class='align-middle font-weight-bold'>配送先</span>
-    </div>
-    <div class='col-2'>
-      <a class="btn btn-primary btn-sm" href="/delivery_addresses" role="button", id="delivery_addresses_index">一覧を見る</a>
-    </div>
-  </div>
 
-  <div class='row mt-3'>
-    <div class='col-1'>
-      <span class='align-middle font-weight-bold'>注文履歴</span>
-    </div>
-    <div class='col-2'>
-      <a class="btn btn-primary btn-sm" href="/orders" role="button">一覧を見る</a>
-    </div>
-  </div>
+  <div class='c-user-select'>
+    <table>
+      <tr>
+        <th>登録情報</th>
+      </tr>
+      <tr>
+        <td><a class='c-user-button' href='/users/edit' role='button'>編集する</a></td>
+      </tr>
+      <tr>
+        <td><a class='c-user-button' href='/users/password/new' role='button'>パスワードを変更する</a></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>配送先</th>
+      </tr>
+      <tr>
+        <td><a class="c-user-button" href="/delivery_addresses" role="button" , id="delivery_addresses_index">一覧を見る</a>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>注文履歴</th>
+      </tr>
+      <tr>
+        <td><a class="c-user-button" href="/orders" role="button">一覧を見る</a></td>
+      </tr>
+    </table>
 
-</div>
+  </div>
