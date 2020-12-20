@@ -1,25 +1,25 @@
 <div class="container">
 
   <div class='row mt-3'>
-    <div class='col-3 offset-1'>
-      <h5 class='text-center'>注文情報確認</h5>
-    </div>
+    <%# <div class='col-3'> %>
+      <h4 class='text-center'>注文情報確認</h4>
+    <%# </div> %>
   </div>
 
   <div class='row mt-3'>
     <div class='col'>
-      <table class='table table-bordered border-primary'>
+      <table class='table'>
         <thead>
-          <tr>
-            <th class='table-secondary'>商品名</th>
-            <th class='table-secondary'>単価(税込)</th>
-            <th class='table-secondary'>数量</th>
-            <th class='table-secondary'>小計</th>
+          <tr class="c-order-confirm">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
           </tr>
         </thead>
         <tbody>
           <% @cart_products.each do |cart_product| %>
-            <tr>
+            <tr class="c-order-confirm-index">
               <td>
                 <% product = Product.find(cart_product.product_id) %>
                 <%= attachment_image_tag product, :image, size:'40x40', fallback: "sample.png" %>
@@ -36,19 +36,19 @@
 
     <div class='col'>
       <table class='table table-bordered border-primary'>
-        <tr>
-          <th class='table-secondary'>送料</th>
+        <tr class="c-order-confirm-index">
+          <th class='c-order-confirm'>送料</th>
           <td><%= @order.shipping.to_s(:delimited) %></td>
         </tr>
-        <tr>
-          <th class='table-secondary'>商品合計</th>
+        <tr class="c-order-confirm-index">
+          <th class='c-order-confirm'>商品合計</th>
           <td>
             <% total = get_total(@cart_products) %>
             <%= total.to_s(:delimited) %>
           </td>
         </tr>
-        <tr>
-          <th class='table-secondary'>請求金額</th>
+        <tr class="c-order-confirm-index">
+          <th class='c-order-confirm'>請求金額</th>
           <td><%= ( @order.shipping.to_i + total ).to_s(:delimited) %></td>
         </tr>
       </table>
@@ -87,7 +87,7 @@
     <div class='row mt-3'>
       <div class='col-12'>
         <div class='text-center'>
-          <%= f.submit "購入を確定する", class: "btn btn-success" %>
+          <%= f.submit "購入を確定する", class: "c-order-button" %>
         </div>
       </div>
     </div>
