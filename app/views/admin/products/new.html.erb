@@ -1,63 +1,65 @@
-<div class="container">
-  <h4 class="mt-3">商品新規登録</h4>
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col">
-        <% if @product.errors.any? %>
-          <div class="alert alert-danger" role="alert">
-            <ul>
-              <% @product.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
+<div class="container-fluid px-5 a-product-container">
+  <div class="row">
+    <div class="col-md-6 px-0">
+      <h3 class="a-product-title">商品新規登録</h3>
     </div>
   </div>
-  <div class="container">
+  <div class="row">
+    <div class="col">
+      <% if @product.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @product.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
     <%= form_with model: @product, url: admin_products_path, local:true do |f| %>
       <div class="row">
-        <div class="col-5">
-            <%= attachment_image_tag @product, :image, size: "300x200", fallback: "sample_cake2.jpg", id: "img" %>
-            <%= f.attachment_field :image, placeholder: "商品画像", id: 'product-img' %>
+        <div class="col-md-6">
+          <div class="a-product-image-wrapper">
+            <%= attachment_image_tag @product, :image, fallback: "sample_cake2.jpg", id: "img", class: "img-fluid" %>
+            <div class="a-product-image-btn-wrapper">
+              <div class="a-product-image-btn">
+                画像アップロード
+                <%= f.attachment_field :image, placeholder: "商品画像", id: 'product-img' %>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-5 offset-md-1">
           <table class="table table-borderless">
-            <thead>
-              <tr>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <td><label>商品名</label></td>
-                <td><%= f.text_field :name, autofocus: true %></td>
+                <td><%= f.text_field :name, autofocus: true, class: "form-control a-product-input" %></td>
               </tr>
               <tr>
                 <td><label>商品説明</label></td>
-                <td><%= f.text_area :introduction, autofocus: true %></td>
+                <td><%= f.text_area :introduction, autofocus: true, class: "form-control a-product-input" %></td>
               </tr>
               <tr>
                 <td><label>ジャンル</label></td>
-                <td><%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, include_blank: "--選択してください--" %></td>
+                <td><%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, { include_blank: "--選択してください--" }, { class: "form-control a-product-select" } %></td>
               </tr>
               <tr>
                 <td><label>税抜き価格</label></td>
-                <td><%= f.text_field :price, autofocus: true %></td>
+                <td><%= f.text_field :price, autofocus: true, class: "form-control a-product-input" %></td>
               </tr>
               <tr>
                 <td><label>販売ステータス</label></td>
-                <td><%= f.select :on_sale_status, [["販売中", TRUE],["売り切れ", FALSE]], include_blank: "--選択してください--" %></td>
-              </tr>
-              <tr>
-                <td><label></label></td>
-                <td><%= f.submit '新規登録',class: "btn btn-primary"%></td>
+                <td><%= f.select :on_sale_status, [["販売中", TRUE],["売り切れ", FALSE]], { include_blank: "--選択してください--" }, { class: "form-control a-product-select" } %></td>
               </tr>
             </tbody>
           </table>
         </div>
+      </div>
+      <div class="a-product-register-btn-wrapper">
+        <%= f.submit '新規登録',class: "a-product-button"%>
       </div>
     <% end %>
   </div>

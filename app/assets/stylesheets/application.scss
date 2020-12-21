@@ -177,3 +177,51 @@ footer li::before {
 footer .commercial-rights {
   text-align: center;
 }
+
+// ページネーション
+.pagination-page {
+  background-color: #C8A06B !important;
+  color: #000000 !important;
+  border: solid 1px #fff !important;
+}
+
+.pagination-page-active {
+  background-color: #111 !important;
+  color: #fff !important;
+  border: solid 1px #fff !important;
+}
+
+.pagination-page:hover {
+  background-color: rgba(212, 183, 144, 0.7) !important;
+  color: #000000 !important;
+  border: solid 1px #fff !important;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// 入力フォーム
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+  outline: 0 none !important;
+  box-shadow: none;
+  border: solid 2px #C8A06B !important;
+  background-color: #ffffff;
+}
