@@ -1,18 +1,21 @@
-
-<div class="container">
+<div class="container-fluid px-5 a-product-container">
   <div class="row">
-    <div class="col-12 mt-4 text-right">
+    <div class="col-md-10">
+      <h3 class="a-product-title">商品一覧</h3>
+    </div>
+    <!-- ボタン配置 -->
+    <div class="col-md-2">
       <%= link_to new_admin_product_path do %>
-        <button type="button" class="btn btn-lg btn-secondary rounded-circle p-0" style="width:3rem;height:3rem;">＋</button>
+        <button type="button" class="a-product-button">追加する</button>
       <% end %>
     </div>
   </div>
+  <!-- 商品一覧表 -->
   <div class="row">
-    <div class="col-12">
-      <h4>商品一覧</h4>
-      <table class="table">
+    <div class="col-md-12">
+      <table class="table table-bordered a-product-table">
         <thead>
-          <tr>
+          <tr class="tablehead a-product-index-text">
             <th>商品ID</th>
             <th>商品名</th>
             <th>税抜価格</th>
@@ -20,11 +23,11 @@
             <th>ステータス</th>
           </tr>
         </thead>
-         <tbody>
+          <tbody class="a-product-index-tbody">
            <% @products.each do |product| %>
              <tr>
                <td><%= product.id %></td>
-               <td><%= link_to product.name, admin_product_path(product)  %></td>
+               <td><%= link_to product.name, admin_product_path(product), class: "a-product-name-text" %></td>
                <td><%= converting_to_jpy(product.price)%></td>
                <td><%= product.genre.name%></td>
                <td>
@@ -38,6 +41,11 @@
            <% end %>
          </tbody>
        </table>
+    </div>
+  </div>
+  <!-- end row -->
+  <div class="row justify-content-center">
+    <div class="col py-4">
       <%= paginate @products %>
     </div>
   </div>
