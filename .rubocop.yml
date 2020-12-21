@@ -1,0 +1,8 @@
+# 警告を一時退避中
+inherit_from: .rubocop_todo.yml
+
+# rubocop関連のgemも使ってチェック
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
