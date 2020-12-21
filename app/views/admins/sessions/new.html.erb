@@ -3,7 +3,7 @@
 <%= form_with model: @admin, url: admin_session_path, local: true do |f| %>
   <div class="container">
     <div class="row mt-5 ml-5">
-      <h4 class="bg-warning">管理者ログイン<h4>
+      <h4>管理者ログイン<h4>
     </div>
 
     <div class="row">
@@ -23,7 +23,7 @@
 
     <div class="row">
       <div class="col-lg-12 col-sm-12 text-center mt-4">
-        <%= f.submit "ログイン", class: "btn btn-primary btn-lg w-25" %>
+        <%= f.submit "ログイン", class: "c-sessions-button w-25" %>
       </div>
     </div>
   </div>
