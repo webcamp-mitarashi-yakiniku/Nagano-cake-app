@@ -26,6 +26,10 @@ class Customer < ApplicationRecord
   end
 
   def Customer.search(search)
-     Customer.where(["family_name LIKE? OR first_name LIKE?", "%#{search}%", "%#{search}%"])
+    Customer.where(["family_name LIKE? OR first_name LIKE?", "%#{search}%", "%#{search}%"])
+  end
+
+  def active_for_authentication?
+    super && (self.is_active == true)
   end
 end
