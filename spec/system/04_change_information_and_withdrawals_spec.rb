@@ -373,7 +373,6 @@ RSpec.describe "04ChangeInformationAndWithdrawals", type: :system do
       click_link "会員一覧"
       tds = page.all("td")
       expect(tds[3]).to have_content "無効"
-      p tds
     end
     it "38_会員情報詳細画面に遷移する" do
       sign_in @admin1
