@@ -8,7 +8,7 @@
         <div class="col-md-3">
           <div class="c-homes-favorite-item">
             <%= link_to product_path(product) do %>
-              <%= attachment_image_tag product, :image, format: 'jpeg', class: "img-fluid" %>
+              <%= attachment_image_tag product, :image, format: 'jpeg', class: "img-fluid", alt: product.name %>
             <% end %>
             <div class="c-homes-favorite-item-name">
               <span class="c-homes-favorite-item-name-text"><%= product.name %></span>

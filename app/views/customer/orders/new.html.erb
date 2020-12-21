@@ -5,57 +5,50 @@
     </div>
   </div>
   <%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
-  <div class='row mt-3'>
-    <div class='col-3'>
-      <h5>支払方法</h5>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col-3 offset-1'>
-      <table>
-            <th><%= f.radio_button :payment_method, 1, {:checked => true} %></th>
-            <th><%= f.label :payment_method, "クレジットカード", {value: 1, style: "display: inline-block;"} %></th>
-          </div>
-          <div>
-            <th><%= f.radio_button :payment_method, 0 %></th>
-            <th><%= f.label :payment_method, "銀行振込", {value: 0, style: "display: inline-block;"} %></th>
-          </div>
-      </table>
-
-    </div>
-  </div>
-  <div class='row mt-3'>
-    <div class='col-3'>
-      <h5 class=''>お届け先</h5>
-    </div>
-  </div>
-  <div class='row'>
-    <div class='col offset-1'>
-    <table>  
-      <tbody> 
-      <div>
-        <%= f.radio_button :send_address, 0, {id: "radio_button_send_address_0", :checked => true} %>
-        <%= f.label :send_address, "ご自身の住所", {value: 0, style: "display: inline-block;"} %>
+    <div class='row mt-3'>
+      <div class='col-3'>
+        <h5>支払方法</h5>
       </div>
-      <div><%= current_customer.address %></div>
-      <div><%= get_fullname(current_customer) %></div>
-      <div>
-        <%= f.radio_button :send_address, 1, {id: "radio_button_send_address_1"} %>
-        <%= f.label :send_address, "登録済住所から選択", {value: 1, style: "display: inline-block;"} %>
+    </div>
+    <div class='row'>
+      <div class='col-3 offset-1'>
+        <table>
+          <th><%= f.radio_button :payment_method, 1, {:checked => true} %></th>
+          <th><%= f.label :payment_method, "クレジットカード", {value: 1, style: "display: inline-block;"} %></th>
+          <th><%= f.radio_button :payment_method, 0 %></th>
+          <th><%= f.label :payment_method, "銀行振込", {value: 0, style: "display: inline-block;"} %></th>
+        </table>
       </div>
-      <select name="registered_address">
-        <%= @delivery_addresses.each do |delivery_addresses| %>
-        <option value=<%= delivery_addresses.id %>>
-          <%= delivery_addresses.post_code + " " + delivery_addresses.address + " " + delivery_addresses.name %>
-        </option>
-        <% end %>
-      </select>
-      <div>
-        <%= f.radio_button :send_address, 2, {id: "radio_button_send_address_2"} %>
-        <%= f.label :send_address, "新しいお届け先", {value: 2, style: "display: inline-block;"} %>
+    </div>
+    <div class='row mt-3'>
+      <div class='col-3'>
+        <h5 class=''>お届け先</h5>
       </div>
-      <div>
-        <%# <table> %>
+    </div>
+    <div class='row'>
+      <div class='col offset-1'>
+        <div>
+          <%= f.radio_button :send_address, 0, {id: "radio_button_send_address_0", :checked => true} %>
+          <%= f.label :send_address, "ご自身の住所", {value: 0, style: "display: inline-block;"} %>
+        </div>
+        <div><%= current_customer.address %></div>
+        <div><%= get_fullname(current_customer) %></div>
+        <div>
+          <%= f.radio_button :send_address, 1, {id: "radio_button_send_address_1"} %>
+          <%= f.label :send_address, "登録済住所から選択", {value: 1, style: "display: inline-block;"} %>
+        </div>
+        <select name="registered_address">
+          <%= @delivery_addresses.each do |delivery_addresses| %>
+            <option value=<%= delivery_addresses.id %>>
+              <%= delivery_addresses.post_code + " " + delivery_addresses.address + " " + delivery_addresses.name %>
+            </option>
+          <% end %>
+        </select>
+        <div>
+          <%= f.radio_button :send_address, 2, {id: "radio_button_send_address_2"} %>
+          <%= f.label :send_address, "新しいお届け先", {value: 2, style: "display: inline-block;"} %>
+        </div>
+        <table>
           <tr>
             <td><%= f.label :new_post_code, "郵便番号(ハイフンなし)" %></td>
             <td><%= f.text_field :new_post_code, class: "form-control" %></td>
@@ -68,17 +61,15 @@
             <td><%= f.label :new_name, "宛先" %></td>
             <td><%= f.text_field :new_name, class: "form-control" %></td>
           </tr>
-          </tbody>
         </table>
       </div>
     </div>
-  </div>
-  <div class='row mt-3'>
-    <div class='col-12'>
-      <div class='text-center'>
-        <%= f.submit "確認画面へ進む", class: "c-order-button" %>
+    <div class='row mt-3'>
+      <div class='col-12'>
+        <div class='text-center'>
+          <%= f.submit "確認画面へ進む", class: "c-order-button" %>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
 </div>
