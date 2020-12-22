@@ -1,0 +1,66 @@
+<div class='container'>
+
+  <div class='row mt-3'>
+    <h4 class='text-center'>マイページ</h4>
+  </div>
+      <table width="100%" class='c-user-table'>
+        <tbody>
+          <tr>
+            <th height="50px" width="40%" colspan="1" scope="row" class='c-user-th'>名前</th>
+            <td class="c-user-td"><%= current_customer.family_name + "　" + current_customer.first_name %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'> カナ</th>
+            <td class="c-user-td"><%= current_customer.family_name_kana + "　" + current_customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>郵便番号</th>
+            <td class="c-user-td"><%= current_customer.post_code %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>住所</th>
+            <td class="c-user-td"><%= current_customer.address %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>電話番号</th>
+            <td class="c-user-td"><%= current_customer.phone_number %></td>
+          </tr>
+          <tr>
+            <th height="50px" class='c-user-th'>メールアドレス</th>
+            <td class="c-user-td"><%= current_customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+  <div class='c-user-select'>
+    <table>
+      <tr>
+        <th class='c-user-select'>登録情報</th>
+      </tr>
+      <tr>
+        <td><a class='c-user-button' href='/users/edit' role='button'>編集する</a></td>
+      </tr>
+      <tr>
+        <td><a class='c-user-button' href='/users/password/new' role='button'>パスワードを変更する</a></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th class='c-user-select'>配送先</th>
+      </tr>
+      <tr>
+        <td><a class="c-user-button" href="/delivery_addresses" role="button" , id="delivery_addresses_index">一覧を見る</a>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th class='c-user-select'>注文履歴</th>
+      </tr>
+      <tr>
+        <td><a class="c-user-button" href="/orders" role="button">一覧を見る</a></td>
+      </tr>
+    </table>
+
+  </div>

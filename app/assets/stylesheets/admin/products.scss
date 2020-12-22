@@ -1,0 +1,102 @@
+// Place all the styles related to the admin/products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 商品一覧
+.a-product-container {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.a-product-title {
+  font-size: 24px;
+  font-weight: 16px;
+}
+
+.a-product-table {
+  margin-top: 8px;
+}
+
+.a-product-index-text {
+  background:#000000;
+  color: #C8A06B;
+}
+
+.a-product-index-tbody {
+  background-color:#EDE1D1;
+}
+
+.a-product-name-text {
+  text-decoration: none;
+  color: #111;
+}
+
+.a-product-name-text:hover {
+  text-decoration: none;
+  color: #C8A06B;
+}
+
+.a-product-button {
+  display: inline-block;
+  border-radius: 5%;
+  font-size: 12pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 9px 33px;
+  background: #000000;
+  color: #C8A06B;
+  line-height: 1em;
+  transition: .3s;
+}
+
+.a-product-button:hover {
+  color: #fff;
+}
+
+// 商品詳細
+.a-product-image-wrapper {
+  width: 100%;
+}
+
+.a-product-image-btn-wrapper {
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.a-product-image-btn {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  padding: 8px;
+  border: 1px solid #111;
+  background-color: #111;
+  color:#fff;
+}
+
+.a-product-image-btn input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  right: 0;
+  top: 0;
+  margin: 0;
+  font-size: 100px;
+  cursor: pointer;
+}
+
+.a-product-input {
+  width: 100%;
+}
+
+.a-product-select {
+  width: 100%;
+}
+
+.a-product-register-btn-wrapper {
+  margin-top: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+}
+

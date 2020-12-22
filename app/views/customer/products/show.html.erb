@@ -1,0 +1,43 @@
+<div class='container'>
+  <div class='row mt-3'>
+
+    <!-- ジャンル検索機能 -->
+    <div class="col-md-2">
+      <%= render 'customer/homes/genre-search' %>
+    </div>
+
+    <div class="col-md-3">
+      <!-- 商品画像 -->
+      <%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "280x280" %>
+    </div>
+    <div class="col-md-7 c-products-box">
+      <div class="ml-4">
+        <div class="c-products-text">
+          <!-- 商品名 -->
+          <div>
+            <h2><%= @product.name %></h2>
+          </div>
+          <!-- 商品説明 -->
+          <div class="mt-3">
+            <%= @product.introduction %>
+          </div>
+          <!-- 価格 -->
+          <div class="mt-3">
+            ¥<%= @product.price.to_s(:delimited) %>
+            <span class="c-products-text-small">(税込)<span>
+          </div>
+        </div>
+        <!-- カートに入れるボタン -->
+        <div class="c-products-box-item">
+          <%= form_with model: @cart_product, url: cart_products_url, local: true do |f| %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.select :product_quantity, options_for_select((1..10).to_a), {include_blank: "個数選択"}, {class: "c-products-select"} %>
+            <%= button_tag :type => "submit", :class =>"c-products-btn ml-2" do %>
+              <span class="c-products-btn-text">カートに入れる<i class="fas fa-cart-plus"></i></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

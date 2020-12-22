@@ -1,0 +1,25 @@
+<div class='container-lg-12 mb-3'>
+  <div class='row-lg-12 mt-3'>
+    <div class="col-lg-12 text-center">
+      <h5>ジャンル編集</h5>
+    </div>
+  </div>
+
+  <%= form_with model: @genre, url: admin_genre_path(@genre.id), remote: false do |f| %>
+    <div class='row-lg-12 mt-3'>
+      <div class="col-lg-6 mx-auto text-center">
+        <%= f.label :name, "ジャンル名", {style: "display: inline-block;"} %>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class='row-lg-12 mt-3'>
+      <div class="col-lg-10 mx-auto text-center">
+        <%= f.radio_button :is_active, true %>
+        <%= f.label :is_active, "有効", {value: true, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_active, false %>
+        <%= f.label :is_active, "無効", {value: false, style: "display: inline-block;"} %>
+        <%= f.submit "変更を保存する", class: "btn btn-dark ml-2" %>
+      </div>
+    </div>
+  <% end %>
+</div>

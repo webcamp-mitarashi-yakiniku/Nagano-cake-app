@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2 class="mt-5"><%= @customer.full_name %>さんの会員情報編集</h2>
+      <!-- TODO: 編集エラー時の処理 -->
+      <% if @customer.errors.present? %>
+        <div class="alert alert-danger" role="alert">
+          <ul>
+            <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= form_with model: @customer, url: admin_user_path, local: true do |f| %>
+        <table class="mt-5 d-flex align-items-center justify-content-center">
+          <tr>
+            <th class="a-users-th">会員ID</th>
+            <td class="a-users-td" colspan="2"><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">氏名</th>
+            <td class="a-users-td"><%= f.text_field :family_name, autofocus: true, class: "form-control" %></td>
+            <td class="a-users-td"><%= f.text_field :first_name, autofocus: true, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">フリガナ</th>
+            <td class="a-users-td"><%= f.text_field :family_name_kana, autofocus: true, class: "form-control" %></td>
+            <td class="a-users-td"><%= f.text_field :first_name_kana, autofocus: true, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">郵便番号</th>
+            <td class="a-users-td" colspan="2"><%= f.text_field :post_code, autofocus: true, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">住所</th>
+            <td class="a-users-td" colspan="2"><%= f.text_field :address, autofocus: true, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">電話番号</th>
+            <td class="a-users-td" colspan="2"><%= f.text_field :phone_number, autofocus: true, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">メールアドレス</th>
+            <td class="a-users-td" colspan="2"><%= f.text_field :email, autofocus: true, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="a-users-th">会員ステータス</th>
+            <td class="a-users-td" colspan="2">
+              <%= f.radio_button :is_active, true, class: "d-inline-block" %>
+              <%= f.label :is_active, "有効", {value: true, style: "display: inline-block;"} %>
+              <%= f.radio_button :is_active, false, class: "d-inline-block" %>
+              <%= f.label :is_active, "退会済み", {value: false, style: "display: inline-block;"} %>
+            </td>
+          </tr>
+        </table>
+        <div class='row mt-3'>
+          <div class="col">
+            <div class="d-flex align-items-center justify-content-center">
+              <%= f.submit "変更を保存する", class: "a-users-button" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

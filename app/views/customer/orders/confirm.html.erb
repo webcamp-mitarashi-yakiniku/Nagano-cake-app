@@ -1,0 +1,96 @@
+<div class="container">
+
+  <div class='row mt-3'>
+    <%# <div class='col-3'> %>
+      <h4 class='text-center'>注文情報確認</h4>
+    <%# </div> %>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col'>
+      <table class='table'>
+        <thead>
+          <tr class="c-order-confirm">
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_products.each do |cart_product| %>
+            <tr class="c-order-confirm-index">
+              <td>
+                <% product = Product.find(cart_product.product_id) %>
+                <%= attachment_image_tag product, :image, size:'40x40', fallback: "sample.png" %>
+                <%= product.name %>
+              </td>
+              <td><%= get_price_including_tax(cart_product).to_s(:delimited) %></td>
+              <td><%= cart_product.product_quantity %></td>
+              <td><%= get_subtotal(cart_product).to_s(:delimited) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class='col'>
+      <table class='table table-bordered border-primary'>
+        <tr class="c-order-confirm-index">
+          <th class='c-order-confirm'>送料</th>
+          <td><%= @order.shipping.to_s(:delimited) %></td>
+        </tr>
+        <tr class="c-order-confirm-index">
+          <th class='c-order-confirm'>商品合計</th>
+          <td>
+            <% total = get_total(@cart_products) %>
+            <%= total.to_s(:delimited) %>
+          </td>
+        </tr>
+        <tr class="c-order-confirm-index">
+          <th class='c-order-confirm'>請求金額</th>
+          <td><%= ( @order.shipping.to_i + total ).to_s(:delimited) %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-2'>
+      <h5>支払い方法</h5>
+    </div>
+    <div class='col'>
+      <%= how_to_pay(@order) %>
+    </div>
+  </div>
+
+  <div class='row mt-3'>
+    <div class='col-2'>
+      <h5 class=''>お届け先</h5>
+    </div>
+    <div class='col'>
+      <div><%= @order.address %></div>
+      <div><%= @order.name %></div>
+    </div>
+  </div>
+
+  <%= form_with model: @order, url: orders_thanks_path, local: true, method: :get do |f| %>
+    <%# Ordersレコード生成のためにパラメータをControllerへ送る %>
+    <%= f.hidden_field :customer_id, class: "form-control", value: @order.customer_id %>
+    <%= f.hidden_field :name, class: "form-control", value: @order.name %>
+    <%= f.hidden_field :post_code, class: "form-control", value: @order.post_code %>
+    <%= f.hidden_field :address, class: "form-control", value: @order.address %>
+    <%= f.hidden_field :account, class: "form-control", value: @order.account %>
+    <%= f.hidden_field :shipping, class: "form-control", value: @order.shipping %>
+    <%= f.hidden_field :payment_method, class: "form-control", value: @order.payment_method %>
+
+    <div class='row mt-3'>
+      <div class='col-12'>
+        <div class='text-center'>
+          <%= f.submit "購入を確定する", class: "c-order-button" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

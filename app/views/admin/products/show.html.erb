@@ -1,0 +1,51 @@
+<div class="container-fluid px-5 a-product-container">
+  <div class="row">
+    <div class="col-md-6 px-0">
+      <h3 class="a-product-title">商品詳細</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="a-product-image-wrapper">
+          <%= attachment_image_tag @product, :image, fallback: "sample_cake2.jpg", id: "img", class: "img-fluid" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tbody class="a-product-index-tbody">
+            <tr>
+              <td width="120" class="a-product-index-text">商品名</td>
+              <td><%= @product.name %></td>
+            </tr>
+            <tr>
+              <td width="120" class="a-product-index-text">商品説明</td>
+              <td><%= @product.introduction %></td>
+            </tr>
+            <tr>
+              <td width="120" class="a-product-index-text">ジャンル</td>
+              <td><%= @product.genre.name %></td>
+            </tr>
+            <tr>
+              <td width="120" class="a-product-index-text">税込価格(税抜価格)</td>
+              <td><%= tax(@product.price) %>(<%= converting_to_jpy(@product.price) %>)円</td>
+            </tr>
+            <tr>
+              <td width="120" class="a-product-index-text">販売ステータス</td>
+              <td>
+                <% if @product.on_sale_status == TRUE %>
+                  <%= "販売中" %>
+                <% else %>
+                  <%= "売切れ" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="a-product-register-btn-wrapper">
+          <%= link_to '編集する',  edit_admin_product_path(@product), class: "a-product-button"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

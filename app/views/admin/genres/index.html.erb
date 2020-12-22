@@ -1,0 +1,12 @@
+
+<div class='container-lg-12'>
+  <div class='row-lg-12'>
+    <div class="col-lg-12">
+      <h5 class="mt-3">ジャンル一覧・追加</h5>
+    </div>
+  </div>
+<%# ジャンル追加フォーム & ジャンル一覧テーブル  %>
+  <div id="add_genre", >
+    <%= render 'admin/genres/genre_table',new_genre: @new_genre, genres: @genres %>
+  </div>
+</div>

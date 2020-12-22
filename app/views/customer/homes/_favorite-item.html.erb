@@ -1,0 +1,27 @@
+<div class="favorite">
+  <div class="c-homes-favorite-title">
+    <span class="c-homes-favorite-title-inner">おすすめ商品</span>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @products.each do |product| %>
+        <div class="col-md-3">
+          <div class="c-homes-favorite-item">
+            <%= link_to product_path(product) do %>
+              <%= attachment_image_tag product, :image, format: 'jpeg', class: "img-fluid", alt: product.name %>
+            <% end %>
+            <div class="c-homes-favorite-item-name">
+              <span class="c-homes-favorite-item-name-text"><%= product.name %></span>
+            </div>
+            <div class="c-homes-favorite-item-price">
+              <span class="c-homes-favorite-item-price-text"><%= product.price.to_s(:delimited) %>円</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="c-homes-favorite-continue-btn-wrapper">
+    <%= link_to "続きをみる", products_path, class: "c-homes-favorite-continue-btn" %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 px-0 genre-search-section">
+      <!-- ジャンル検索 -->
+      <%= render 'customer/homes/genre-search' %>
+    </div>
+    <div class="col-md-10 px-0">
+      <div class="c-homes-main-visual">
+
+        <img id="mypic" src="assets/sample.jpg">
+ 
+        <div class="c-homes-main-visual-content">
+          <h1 class="c-homes-main-visual-text">Welcome to NaganoCake</h1>
+          <h1 class="c-homes-main-visual-text">Gemlike sweets at home</h1>
+        </div>
+      </div>
+      <div class="col-md-12 my-5">
+        <%= render 'favorite-item' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+            <script>
+            var pics_src = new Array("assets/sample_top.jpg","assets/sample_top2.jpg","assets/sample_top3.jpg","assets/sample_top4.jpg","assets/sample_top.jpg");
+            var num = -1;
+ 
+            slideshow_timer();
+ 
+            function slideshow_timer(){
+                if (num == 4){
+                    num = 2;
+                } 
+                else {
+                    num ++;
+                }
+                document.getElementById("mypic").src=pics_src[num];
+                setTimeout("slideshow_timer()",2000); 
+            }
+            </script>
