@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-12">
       <div id="success-message"></div>
-      <h2 class="mt-5">注文履歴詳細</h2>
-      <div class="container mt-5">
+      <h2 class="mt-4">注文履歴詳細</h2>
+      <div class="container mt-4">
         <div class="row">
           <div class="col-10">
             <table class="table">
@@ -25,7 +25,7 @@
                   <td>
                     <%= form_with method: @order, url: admin_order_path(@order.id), method: :patch, remote: true do |f| %>
                       <%= f.select :order_status, [['入金待ち', 0], ['入金確認', 1], ['製作中', 2], ['発送準備中', 3], ['発送済み', 4]], { selected: @order.order_status }, class: "form-control w-25 d-inline-block" %>
-                      <%= f.submit "更新", class: "btn btn-primary" %>
+                      <%= f.submit "更新", class: "btn btn-dark" %>
                     <% end %>
                   </td>
                 </tr>
@@ -58,7 +58,7 @@
                     <td>
                       <%= form_with method: order_product, url: admin_order_order_product_path(@order.id, order_product.id), method: :patch, remote: true do |f| %>
                         <%= f.select :work_status, [['着手不可', 0], ['製作待ち', 1], ['製作中', 2], ['製作完了', 3]], { selected: order_product.work_status }, class: "form-control w-50 d-inline-block" %>
-                        <%= f.submit "更新", class: "btn btn-primary" %>
+                        <%= f.submit "更新", class: "btn btn-dark" %>
                       <% end %>
                     </td>
                   </tr>
