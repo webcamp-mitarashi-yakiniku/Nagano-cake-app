@@ -2,11 +2,11 @@
   <!-- タイトル -->
   <div class='row mt-3'>
     <div class="col">
-      <h2 class="c-products-title">商品一覧（全<%= @products.count %>件）</h2>
-      <p class="c-products-title c-products-title-sub">Products</p>
+      <h2 class="c-genres-title"><%= @genre.name %>一覧（全<%= @genre.products.count %>件）</h2>
+      <p class="c-genres-title c-genres-title-sub">Products</p>
     </div>
   </div>
-  <!-- ジャンル検索機能 & 商品一覧テーブル -->
+  <!-- ジャンル検索機能 & ジャンル内商品一覧テーブル -->
   <div class='row mt-3'>
     <div class="col-md-2">
       <%= render 'customer/genres/genre-search', genres: @genres %>
@@ -14,12 +14,12 @@
     <div class="col-md-10">
       <div id="product">
         <div class="row">
-          <% @products_page.each do |product| %>
+          <% @genre.products.each do |product| %>
             <div class="col-md-3 mb-3">
               <%= link_to product_path(product) do %>
                 <%= attachment_image_tag product, :image, format: 'jpeg', fallback: "sample_no_image.jpg", size: "240x240" %>
               <% end %><br>
-              <div class=".c-products-text">
+              <div class=".c-genres-text">
                 <%= product.name %><br>
                 <%= product.price.to_s(:delimited) %>円
               </div>
@@ -33,7 +33,7 @@
   <div class='row mt-3'>
     <div class="col">
       <div class="d-flex align-items-center justify-content-center">
-        <%= paginate @products_page %>
+        <%= paginate @genre_page %>
       </div>
     </div>
   </div>
