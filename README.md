@@ -59,10 +59,10 @@ http://18.180.46.155/<br>
 - ユーザ名や商品名での検索
 
 ## ER図
-![ER図-ナガノCAKE](https://user-images.githubusercontent.com/49280097/102966932-3ed9a900-4534-11eb-8674-0c755ced2730.png)
+![ER図-ナガノCAKE](https://user-images.githubusercontent.com/49280097/102967615-ab08dc80-4535-11eb-9c82-77a3a68ec1f9.png)
 
 ## 制作メンバー
--
--
--
+- [yuta_nkn](https://github.com/yuta252)
+- [wkn816](https://github.com/wkn816)
+- [Taketo Yamori](https://github.com/taketoyamori)
 - [sf-12](https://github.com/sf-12)
