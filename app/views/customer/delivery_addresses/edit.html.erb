@@ -1,17 +1,8 @@
-<div class="container">
+<div class="container p-5">
+  <%= render 'layouts/error', obj: @delivery_address %>
   <div class="row">
     <div class="col-9">
-      <h2 class="mt-5">配送先編集</h2>
-      <!-- 編集エラー時の処理 -->
-      <% if @delivery_address.errors.present? %>
-        <div class="alert alert-danger" role="alert">
-          <ul>
-            <% @delivery_address.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      <h2>配送先編集</h2>
       <%= form_with model: @delivery_address, local: true do |f| %>
         <table class="mt-5">
           <thead>

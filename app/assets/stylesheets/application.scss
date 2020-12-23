@@ -225,3 +225,12 @@ input[type="color"]:focus,
   border: solid 2px #C8A06B !important;
   background-color: #ffffff;
 }
+
+// エラー処理
+.error-message {
+  background-color: #D6BA96;
+}
+
+.error-message-list {
+  list-style: none;
+}
