@@ -36,5 +36,6 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/thanks' => 'orders#thanks'
     resources :orders, only: [:index, :show, :new]
+    resources :genres, only: [:show]
   end
 end
