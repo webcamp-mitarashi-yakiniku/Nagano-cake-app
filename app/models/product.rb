@@ -6,15 +6,14 @@ class Product < ApplicationRecord
 
   attachment :image
 
-  validates :name, presence: true
-  validates :introduction, presence: true
-  validates :image, presence: true
-  validates :genre_id, presence: true
+  validates :name, presence: { message: 'を入力してください。'}
+  validates :introduction, presence: { message: 'を入力してください。'}
+  validates :image, presence: { message: 'を選択してください。'}
 
   # 空でないかつ整数のみ許容
-  validates :price, presence: true, numericality: { only_integer: true }
+  validates :price, presence: true, numericality: { only_integer: true, message: 'は数字を入力してください。' }
   # true/false のみ許容
-  validates :on_sale_status, inclusion: {in: [true, false]}
+  validates :on_sale_status, inclusion: {in: [true, false], message: 'を選択してください。' }
 
   def Product.search(search)
     Product.where(['name LIKE?', "%#{search}%"])

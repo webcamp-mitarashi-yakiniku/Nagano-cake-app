@@ -1,71 +1,63 @@
-
-<div class="container">
+<div class="container m-5">
   <div class="row">
-    <h4 class="mt-4 c-title">新規会員登録</h4>
+    <div class="col-4">
+      <h4 class="mt-4 c-title">新規会員登録</h4>
+    </div>
   </div>
-
   <%= form_with model: @customer, url: customer_registration_path, local: true do |f| %>
-    <%# <div class="row"> %>
-      <%# <div class="col-lg-8 mx-auto mt-3"> %>
-      <div class="class="inputTableArea>
-        <table width="100%">
-
-          <tbody>
-            <tr>
-              <th width="40%" colspan="1" align="right" scope="row" class="c-registrations-th">名前(姓)(名)</th>
-              <td><%= f.text_field :family_name, autofocus: true, id: "family_name__input", class: "form-control" %></td>
-              <td width="30%"><%= f.text_field :first_name, autofocus: true, id: "first_name__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <th class="c-registrations-th">フリガナ(セイ)(メイ)</th>
-              <td><%= f.text_field :family_name_kana, autofocus: true, id: "family_name_kana__input", class: "form-control" %></td>
-              <td><%= f.text_field :first_name_kana, autofocus: true, id: "first_name_kana__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <th class="c-registrations-th"><label for="mail_address__input">メールアドレス</label></th>
-              <td><%= f.email_field :email, autofocus: true, id: "mail_address__input", class: "form-control" %></>
-            </tr>
-            <tr>
-              <th class="c-registrations-th"><label for="post_code__input">郵便番号（ハイフンなし）</label></th>
-              <td><%= f.text_field :post_code, autofocus: true, id: "post_code__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <th class="c-registrations-th"><label for="address__input">住所</label></th>
-              <td><%= f.text_field :address, autofocus: true, id: "address__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <th class="c-registrations-th"><label for="phone_number__input">電話番号（ハイフンなし）</label></th>
-              <td><%= f.text_field :phone_number, autofocus: true, id: "phone_number__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <th class="c-registrations-th"><label for="password__input">パスワード（６文字以上）</label></th>
-              <td><%= f.password_field :password, autofocus: true, id: "password__input", class: "form-control" %></td>
-            </tr>
-            <tr>
-              <th class="c-registrations-th"><label for="password_confirmation__input">パスワード（確認用）</label></th>
-              <td><%= f.password_field :password_confirmation, autofocus: true, id: "password_confirmation__input", class: "form-control" %></td>
-
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    <%# </div> %>
-
+    <%= render 'layouts/error', obj: f.object %>
+    <div class="class="inputTableArea>
+      <table width="100%">
+        <tbody>
+          <tr>
+            <th width="40%" colspan="1" align="right" scope="row" class="c-registrations-th">名前(姓)(名)</th>
+            <td><%= f.text_field :family_name, autofocus: true, id: "family_name__input", class: "form-control" %></td>
+            <td width="30%"><%= f.text_field :first_name, autofocus: true, id: "first_name__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-registrations-th">フリガナ(セイ)(メイ)</th>
+            <td><%= f.text_field :family_name_kana, autofocus: true, id: "family_name_kana__input", class: "form-control" %></td>
+            <td><%= f.text_field :first_name_kana, autofocus: true, id: "first_name_kana__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-registrations-th"><label for="mail_address__input">メールアドレス</label></th>
+            <td><%= f.email_field :email, autofocus: true, id: "mail_address__input", class: "form-control" %></>
+          </tr>
+          <tr>
+            <th class="c-registrations-th"><label for="post_code__input">郵便番号（ハイフンなし）</label></th>
+            <td><%= f.text_field :post_code, autofocus: true, id: "post_code__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-registrations-th"><label for="address__input">住所</label></th>
+            <td><%= f.text_field :address, autofocus: true, id: "address__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-registrations-th"><label for="phone_number__input">電話番号（ハイフンなし）</label></th>
+            <td><%= f.text_field :phone_number, autofocus: true, id: "phone_number__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-registrations-th"><label for="password__input">パスワード（６文字以上）</label></th>
+            <td><%= f.password_field :password, autofocus: true, id: "password__input", class: "form-control" %></td>
+          </tr>
+          <tr>
+            <th class="c-registrations-th"><label for="password_confirmation__input">パスワード（確認用）</label></th>
+            <td><%= f.password_field :password_confirmation, autofocus: true, id: "password_confirmation__input", class: "form-control" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="row">
       <div class="col-lg-12 col-sm-12 text-center mt-5">
         <input type="submit" value="送信する" class="c-registrations-button">
-        </div>
       </div>
     </div>
   <% end %>
-
-
-    <div class="row">
-      <div class="col-lg-12 col-sm-12 text-center mt-5">
-        <h4>既に登録済みの方</h4>
-        <p><%= link_to "こちら", new_customer_session_path %>からログインしてください。</p>
-      </div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 text-center mt-5">
+      <h4>既に登録済みの方</h4>
+      <p><%= link_to "こちら", new_customer_session_path %>からログインしてください。</p>
     </div>
+  </div>
 </div>
 
 

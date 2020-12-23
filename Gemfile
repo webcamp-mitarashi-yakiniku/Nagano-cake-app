@@ -82,3 +82,4 @@ gem "refile-mini_magick"
 gem 'devise'
 gem 'kaminari-bootstrap'
 gem 'dotenv-rails'
+gem 'rails-i18n'

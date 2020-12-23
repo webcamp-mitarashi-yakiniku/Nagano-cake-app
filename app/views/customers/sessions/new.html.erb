@@ -4,31 +4,25 @@
       <h3 class="c-sessions-information">会員の方はこちらからログイン</h3>
       <div class="login-form">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <table>
-              <tr>
-                <th></th>
-                <th></th>
-              </tr>
-              <tr>
-                <td class="c-sessions-label text-center align-middle"><%= f.label :メールアドレス %></td>
-                <td><%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'session_email', class: "form-control" %></td>
-              </tr>
-              <tr>
-                <td class="c-sessions-label text-center align-middle"><%= f.label :パスワード %></td>
-                <td><%= f.password_field :password, autocomplete: "current-password", id: 'session_password', class: "form-control" %></td>
-              </tr>
-            </table>
-
-            <div class="c-sessions-remember">
-              <%= link_to '=>パスワードを忘れた方はこちら',new_customer_password_path, :style=>"color:#FFD700;" %>
-            </div>
-
-            <div>
-              <%= f.submit "ログイン", class: "c-sessions-button" %>
-            </div>
+          <%= render 'layouts/error', obj: resource %>
+          <table>
+            <tr>
+              <td class="c-sessions-label text-center align-middle"><%= f.label :メールアドレス %></td>
+              <td><%= f.email_field :email, autofocus: true, autocomplete: "email", id: 'session_email', class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td class="c-sessions-label text-center align-middle"><%= f.label :パスワード %></td>
+              <td><%= f.password_field :password, autocomplete: "current-password", id: 'session_password', class: "form-control" %></td>
+            </tr>
+          </table>
+          <div class="c-sessions-remember">
+            <%= link_to '=>パスワードを忘れた方はこちら',new_customer_password_path, :style=>"color:#FFD700;" %>
+          </div>
+          <div>
+            <%= f.submit "ログイン", class: "c-sessions-button" %>
+          </div>
         <% end %>
       </div>
-
       <div class="c-sessions-signup-info">
         <div>
           <p>登録がお済みでない方</P>

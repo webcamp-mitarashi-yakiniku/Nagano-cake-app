@@ -37,19 +37,22 @@ class Customer::OrdersController < ApplicationController
       @order.post_code = delivery_address.post_code
       @order.address = delivery_address.address
     else
+      @delivery_addresses = DeliveryAddress.where(customer_id: current_customer.id)
       # 新しいお届け先が選択された場合
       # 新しいお届け先の保存も行う
-      new_delivery_address = DeliveryAddress.new
-      new_delivery_address.customer_id = current_customer.id
-      new_delivery_address.name = params[:order][:new_name]
-      new_delivery_address.post_code = params[:order][:new_post_code]
-      new_delivery_address.address = params[:order][:new_address]
-      new_delivery_address.save
-      @order.name = new_delivery_address.name
-      @order.post_code = new_delivery_address.post_code
-      @order.address = new_delivery_address.address
+      @new_delivery_address = DeliveryAddress.new
+      @new_delivery_address.customer_id = current_customer.id
+      @new_delivery_address.name = params[:order][:new_name]
+      @new_delivery_address.post_code = params[:order][:new_post_code]
+      @new_delivery_address.address = params[:order][:new_address]
+      if @new_delivery_address.save
+        @order.name = new_delivery_address.name
+        @order.post_code = new_delivery_address.post_code
+        @order.address = new_delivery_address.address
+      else
+        render :new
+      end
     end
-
   end
 
   def thanks
