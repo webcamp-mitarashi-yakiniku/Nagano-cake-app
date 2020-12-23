@@ -1,4 +1,6 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     # TODO: ページネーションで何件デフォルトで表示するかは要検討
     @orders = Order.all.page(params[:page]).per(10)
