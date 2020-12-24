@@ -37,7 +37,7 @@ http://18.180.46.155/<br>
 - RuboCop
 
 ## AWS構成図
-![AWS構成図](https://user-images.githubusercontent.com/49280097/102963815-6ed17e00-452d-11eb-8db2-b239d05b7990.png)
+![AWS構成図](https://user-images.githubusercontent.com/49280097/103065861-f9cc7a00-45fa-11eb-83c0-f100196a65ec.png)
 
 ## 機能一覧
 ### ユーザ側
