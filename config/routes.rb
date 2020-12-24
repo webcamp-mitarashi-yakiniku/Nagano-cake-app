@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   get 'search' => 'search#locate'
 
-  devise_for :admins, path: 'admin',controllers: {
+  devise_for :admins, path: 'admin', controllers: {
     sessions: 'admin/sessions'
   }
 
-  devise_for :customers, path: '',controllers: {
+  devise_for :customers, path: '', controllers: {
     sessions: 'customer/sessions',
     registrations: 'customer/registrations',
     passwords: 'customer/passwords'
@@ -36,5 +36,6 @@ Rails.application.routes.draw do
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/thanks' => 'orders#thanks'
     resources :orders, only: [:index, :show, :new]
+    resources :genres, only: [:show]
   end
 end

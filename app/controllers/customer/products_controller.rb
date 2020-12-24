@@ -1,8 +1,10 @@
 class Customer::ProductsController < ApplicationController
   # before_action :authenticate_user!, only: [:show]
 
+
   def index
-    @products = Product.all.page(params[:page]).per(8)
+    @products = Product.all
+    @products_page = @products.page(params[:page]).per(8)
     @genres = Genre.all
   end
 

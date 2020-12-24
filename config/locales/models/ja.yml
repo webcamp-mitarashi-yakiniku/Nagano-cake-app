@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      customer: 顧客
+      delivery_address: 配送先
+      product: 商品
+      genre: ジャンル
+    attributes:
+      customer:
+        family_name: 姓
+        first_name: 名
+        family_name_kana: セイ
+        first_name_kana: メイ
+        email: メールアドレス
+        password: パスワード
+        post_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+      delivery_address:
+        name: 宛名
+        post_code: 郵便番号
+        address: 住所
+      product:
+        name: 商品名
+        introduction: 商品説明
+        price: 価格
+        genre: ジャンル
+        image: 商品画像
+        genre_id: ジャンル
+        on_sale_status: 販売ステータス
+      genre:
+        name: ジャンル名

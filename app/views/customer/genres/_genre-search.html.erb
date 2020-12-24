@@ -1,0 +1,9 @@
+<div class="genre-search-navi-wrapper">
+  <div class="genre-search-navi-title">
+    <span>ジャンル検索</span>
+  </div>
+
+  <% genres.each do |genre| %>
+    <%=link_to genre.name, genre_path(genre.id), class: "genre-search-navi-list" %>
+  <% end %>
+</div>

@@ -19,6 +19,10 @@ module NaganoCake
     # タイムゾーンを日本時間に設定
     config.time_zone = 'Asia/Tokyo'
 
+    # エラーメッセージの日本語化
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
+
     # rspec設定
     config.generators do |g|
       g.test_framework :rspec,
