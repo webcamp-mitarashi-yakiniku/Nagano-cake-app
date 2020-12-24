@@ -5,7 +5,7 @@
       <h4 class='text-center'>ショッピングカート</h4>
     </div>
     <div class='col-3 offset-5'>
-      <%= link_to cart_products_empty_path, method: :delete, remote: true do %>
+      <%= link_to cart_products_empty_path, remote: true do %>
         <button type="button" class="c-cart-products-index-button">カートを空にする</button>
       <% end %>
     </div>
@@ -17,7 +17,9 @@
   <div class='row mt-3'>
     <div class='col-12'>
       <div class='text-center'>
-        <a class="c-cart-products-index-button" href="/orders/new" role="button">情報入力に進む</a>
+        <% unless @cart_products.empty? %>
+          <a class="c-cart-products-index-button" href="/orders/new" role="button">情報入力に進む</a>
+        <% end %>
       </div>
     </div>
   </div>

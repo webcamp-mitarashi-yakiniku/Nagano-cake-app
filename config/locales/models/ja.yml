@@ -5,6 +5,7 @@ ja:
       delivery_address: 配送先
       product: 商品
       genre: ジャンル
+      cart_product: カート内商品
     attributes:
       customer:
         family_name: 姓
@@ -30,3 +31,5 @@ ja:
         on_sale_status: 販売ステータス
       genre:
         name: ジャンル名
+      cart_product:
+        product_quantity: 注文個数

@@ -1,6 +1,5 @@
 class Customer::UsersController < ApplicationController
-  before_action :autheniticate_user, {only: [:edit, :update]}
-  # before_action :authenticate_customer!,except: [:top,:about,:index]
+  before_action :authenticate_customer!
 
   def show
 
@@ -30,6 +29,8 @@ class Customer::UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
+  private
 
   def customer_params
     params.require(:customer).permit(:family_name, :first_name, :family_name_kana,
