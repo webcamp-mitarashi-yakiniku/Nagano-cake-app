@@ -56,12 +56,19 @@
 // 商品詳細
 .a-product-image-wrapper {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .a-product-image-btn-wrapper {
+  margin-top: 20px;
   padding: 8px;
   display: flex;
   justify-content: center;
+}
+
+.a-product-image-content {
+  width: 300px;
 }
 
 .a-product-image-btn {
@@ -94,7 +101,7 @@
 }
 
 .a-product-register-btn-wrapper {
-  margin-top: 16px;
+  margin-top: 20px;
   padding: 8px;
   display: flex;
   justify-content: center;
