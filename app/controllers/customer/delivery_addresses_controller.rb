@@ -1,4 +1,5 @@
 class Customer::DeliveryAddressesController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @delivery_address = DeliveryAddress.new
@@ -41,6 +42,8 @@ class Customer::DeliveryAddressesController < ApplicationController
       format.js
     end
   end
+
+  private
 
   def delivery_address_params
     params.require(:delivery_address).permit(:name, :post_code, :address)

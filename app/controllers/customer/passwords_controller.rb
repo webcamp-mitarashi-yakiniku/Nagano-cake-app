@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Customer::PasswordsController < Devise::PasswordsController
+  skip_before_action :require_no_authentication
   # GET /resource/password/new
   # def new
   #   super
@@ -12,9 +13,9 @@ class Customer::PasswordsController < Devise::PasswordsController
   # end
 
   # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  def edit
+    super
+  end
 
   # PUT /resource/password
   # def update

@@ -1,4 +1,5 @@
 class Customer::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def index
     @orders = Order.where(customer_id: current_customer.id).order(created_at: :desc)
@@ -46,9 +47,9 @@ class Customer::OrdersController < ApplicationController
       @new_delivery_address.post_code = params[:order][:new_post_code]
       @new_delivery_address.address = params[:order][:new_address]
       if @new_delivery_address.save
-        @order.name = new_delivery_address.name
-        @order.post_code = new_delivery_address.post_code
-        @order.address = new_delivery_address.address
+        @order.name = @new_delivery_address.name
+        @order.post_code = @new_delivery_address.post_code
+        @order.address = @new_delivery_address.address
       else
         render :new
       end

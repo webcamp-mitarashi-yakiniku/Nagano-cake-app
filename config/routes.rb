@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get 'exit' => 'users#exit'
     end
     resources :cart_products, only: [ :create, :index ,:update, :destroy]
-    delete 'cart_products/empty' => 'cart_products#empty'
+    get 'cart_products/empty' => 'cart_products#empty'
     resources :delivery_addresses, only: [:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     post 'orders/confirm' => 'orders#confirm'
