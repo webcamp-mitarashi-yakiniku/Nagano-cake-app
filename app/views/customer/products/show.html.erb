@@ -14,13 +14,7 @@
             </div>
           </div>
           <div class="col-md-6 c-products-box">
-            <% if flash[:notice] %>
-              <div class="alert error-message" role="alert">
-                <ul>
-                  <li class="error-message-list"><%= flash[:notice] %></li>
-                </ul>
-              </div>
-            <% end %>
+            <%= render 'layouts/error', obj: @cart_product %>
             <div class="ml-4">
               <div class="c-products-text">
                 <!-- 商品名 -->
@@ -40,11 +34,13 @@
               <!-- カートに入れるボタン -->
               <div class="c-products-box-item">
                 <%= form_with model: @cart_product, url: cart_products_url, local: true do |f| %>
-                  <%= f.hidden_field :product_id, value: @product.id %>
-                  <%= f.select :product_quantity, options_for_select((1..10).to_a), {include_blank: "個数選択"}, {class: "c-products-select"} %>
-                  <%= button_tag :type => "submit", :class =>"c-products-btn ml-2" do %>
-                    <span class="c-products-btn-text">カートに入れる<i class="fas fa-cart-plus"></i></span>
-                  <% end %>
+                  <div class="c-products-btn-wrapper">
+                    <%= f.hidden_field :product_id, value: @product.id %>
+                    <%= f.select :product_quantity, options_for_select((1..10).to_a), {include_blank: "個数選択"}, {class: "c-products-select"} %>
+                    <%= button_tag :type => "submit", :class =>"c-products-btn ml-2" do %>
+                      <span class="c-products-btn-text">カートに入れる<i class="fas fa-cart-plus"></i></span>
+                    <% end %>
+                  </div>
                 <% end %>
               </div>
             </div>
