@@ -13,7 +13,7 @@ DMM WEB CAMP ２ヶ月目後半に行われたチーム開発のカリキュラ�
 ![トップページ](https://user-images.githubusercontent.com/49280097/102960762-fadfa780-4525-11eb-9829-c8cdd1b355fb.png)
 
 ## URL
-http://18.180.46.155/<br>
+http://nagano-cake.site/<br>
 ※サーバ代節約のため、リンク切れの可能性があります。<br>
   ご承知おきください。<br>
 

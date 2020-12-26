@@ -59,12 +59,12 @@
         </thead>
         <tbody class="c-order-index-tbody">
           <% @order_products.each do |order_product| %>
-          <tr>
-            <td><%= order_product.product.name %></td>
-            <td><%= order_product.price %></td>
-            <td><%= order_product.product_quantity %></td>
-            <td><%= order_product.subtotal %></td>
-          </tr>
+            <tr>
+              <td><%= order_product.product.name %></td>
+              <td><%= order_product.price %></td>
+              <td><%= order_product.product_quantity %></td>
+              <td><%= order_product.subtotal %></td>
+            </tr>
           <% end %>
         </tbody>
       </table>

@@ -25,20 +25,30 @@
 }
 
 .c-products-box-item {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  //position: absolute;
+  //bottom: 0;
+  //right: 0;
+  margin-top: 16px;
+}
+
+.c-products-btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 .c-products-select {
   width: 100px;
+  display: inline-block;
 }
+
 .c-products-btn {
   background-color: #111111;
   border: none;
   outline: none;
   padding: 5px 10px 5px 10px;
   border-radius: 3px;
+  display: inline-block;
 }
 .c-products-btn-text {
   color: #C8A06B;

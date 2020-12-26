@@ -2,13 +2,17 @@ class Customer::CartProductsController < ApplicationController
   before_action :authenticate_customer!
 
   def create
-    cart_product = CartProduct.create(cart_product_params)
-    cart_product.customer_id = current_customer.id
-    if cart_product.save
+    @cart_product = CartProduct.create(cart_product_params)
+    @cart_product.customer_id = current_customer.id
+    if @cart_product.save
       redirect_to cart_products_url
     else
-      flash[:notice] = "注文個数を選択してください"
-      redirect_to product_path(params[:cart_product][:product_id])
+      @product = Product.find(params[:cart_product][:product_id])
+      @order = Order.new
+      @customer = current_customer
+      @genres = Genre.all
+      # ジャンルの表示
+      render template: "customer/products/show"
     end
   end
 
