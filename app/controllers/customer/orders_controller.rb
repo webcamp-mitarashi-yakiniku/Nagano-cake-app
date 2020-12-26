@@ -57,23 +57,31 @@ class Customer::OrdersController < ApplicationController
   end
 
   def thanks
-    # 注文を確定
-    order = Order.create(order_params)
-    order.save
-
-    # カート商品の注文を保存
-    current_customer.cart_products.each do |cart_product|
-      order_product = order.order_products.build
-      order_product.product_id = cart_product.product_id
-      order_product.price = get_price_including_tax(cart_product)
-      order_product.product_quantity = cart_product.product_quantity
-      order_product.work_status = 0
-      order_product.save
-    end
-
-    # カートの中身をすべて削除
-    current_customer.cart_products.each do |cart_product|
-      cart_product.delete
+    # トランザクション処理
+    begin
+      ActiveRecord::Base.transaction do
+        # 注文を確定
+        order = Order.create(order_params)
+        order.save!
+        # 処理が失敗した場合のエラー
+        # raise ActiveRecord::RecordInvalid
+        # カート商品の注文を保存
+        current_customer.cart_products.each do |cart_product|
+          order_product = order.order_products.build
+          order_product.product_id = cart_product.product_id
+          order_product.price = get_price_including_tax(cart_product)
+          order_product.product_quantity = cart_product.product_quantity
+          order_product.work_status = 0
+          order_product.save!
+        end
+        # カートの中身をすべて削除
+        current_customer.cart_products.each do |cart_product|
+          cart_product.delete
+        end
+      end
+    rescue => exception
+      logger.debug("transaction failed: #{exception}")
+      redirect_to root_path
     end
   end
 
