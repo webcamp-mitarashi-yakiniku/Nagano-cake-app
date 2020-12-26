@@ -61,9 +61,9 @@
           <% @order_products.each do |order_product| %>
             <tr>
               <td><%= order_product.product.name %></td>
-              <td><%= order_product.price %></td>
+              <td><%= order_product.price.to_s(:delimited) %>円</td>
               <td><%= order_product.product_quantity %></td>
-              <td><%= order_product.subtotal %></td>
+              <td><%= order_product.subtotal.to_s(:delimited) %>円</td>
             </tr>
           <% end %>
         </tbody>
