@@ -27,7 +27,7 @@
                   <p><%= order_product.product.name %></p>
                 <% end %>
               </td>
-              <td><%= order.shipping.to_s(:delimited) %>円</td>
+              <td><%= order.total_billing_included_shipping.to_s(:delimited) %>円</td>
               <td><%= order.display_order_status %></td>
               <td>
                 <%= link_to order_path(order.id) do %>
